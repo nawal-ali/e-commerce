@@ -1,2 +1,2 @@
-# e-commerce-
-depi-project
+# e-commerce
+depi graduation project
