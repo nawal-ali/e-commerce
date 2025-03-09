@@ -1,1 +1,51 @@
-<p>navbar works!</p>
+<div class="row text-center ps-5">
+    <div class="col-12 col-sm-6 pt-4">
+        <i class="fa-solid fa-shop fs-1 text-dark" routerLink="/" style="cursor: pointer;"></i>
+        <p>Store Name</p>
+    </div>
+    <div class="col-12 col-sm-6 d-flex align-items-top justify-content-end bg-dark pt-4 pe-5"
+        style=" clip-path: polygon(0 0%, 15% 100%, 100% 100%, 100% 0, 0 0);">
+        <p class="fs-5 text-light mx-2">hotline: +20 111 222 333 </p>
+        <i class="fa-regular fa-heart fs-5 text-light border rounded p-2 mx-2 align-self-start" routerLink="/favorite"
+            routerLinkActive="bg-light text-dark" style="cursor: pointer;"></i>
+        <i class="fa-solid fa-cart-shopping fs-5 text-light border rounded p-2 mx-2 align-self-start" routerLink="/cart"
+            routerLinkActive="bg-light text-dark" style="cursor: pointer;"></i>
+        <i class="fa-solid fa-user fs-5 text-light border rounded p-2 mx-2 align-self-start"></i>
+    </div>
+</div>
+
+<div class="container my-3">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" routerLink="/"
+                        routerLinkActive="rounded bg-dark text-light"
+                        [routerLinkActiveOptions]="{'exact': true}">Home</a>
+                    <a class="nav-link mx-2" routerLink="/desktop"
+                        routerLinkActive="rounded bg-dark text-light">Desktop</a>
+                    <a class="nav-link mx-2" routerLink="/laptop" routerLinkActive="rounded bg-dark text-light">Laptop
+                    </a>
+                    <a class="nav-link mx-2" routerLink="/monitor" routerLinkActive="rounded bg-dark text-light">Monitor
+                    </a>
+                    <a class="nav-link mx-2" routerLink="/tv" routerLinkActive="rounded bg-dark text-light">TV </a>
+                    <a class="nav-link mx-2" routerLink="/gaming" routerLinkActive="rounded bg-dark text-light">Gaming
+                    </a>
+                    <a class="nav-link mx-2" routerLink="/speaker"
+                        routerLinkActive="rounded bg-dark text-light">Bluetooth
+                        speaker</a>
+                    <a class="nav-link" routerLink="/accessories"
+                        routerLinkActive="rounded bg-dark text-light">Accessories </a>
+                </div>
+                <form class="d-flex ms-auto" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>

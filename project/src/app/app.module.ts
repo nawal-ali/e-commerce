@@ -17,6 +17,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { ProductCardComponent } from './shared/components/product-card/product-card.component';
 import { BannerSliderComponent } from './shared/components/banner-slider/banner-slider.component';
+import { FavComponent } from './pages/fav/fav.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { BannerSliderComponent } from './shared/components/banner-slider/banner-
     NavbarComponent,
     FooterComponent,
     ProductCardComponent,
-    BannerSliderComponent
+    BannerSliderComponent,
+    FavComponent
   ],
   imports: [
     BrowserModule,
