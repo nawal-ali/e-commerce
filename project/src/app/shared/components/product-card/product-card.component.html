@@ -1,6 +1,17 @@
-<div class="card" style="width: 18rem;" *ngFor="let item of products">
+<div class="card p-4" style="width: 18rem;" *ngFor="let item of products">
     <img src={{item.image}} class="card-img-top" alt="...">
     <div class="card-body">
+        <h3 class="card-title">{{item.name}}</h3>
+        <p class="card-text">price: <span class="fw-bold">{{item.price}}</span></p>
         <p class="card-text">{{item.description}}</p>
+        <!-- <p class="card-text"><span *ngFor="let star of stars" class="p-2">*</span></p> -->
+        <div class="d-flex w-100 mb-3">
+            <button class="btn align-self-start bg-dark text-light w-25 rounded" (click)="removeItem()">-</button>
+            <p class="border border-1 rounded ps-2 pe-2 flex-fill text-center mx-2 mb-0 item-number fs-4">
+                {{numOfItems}}
+            </p>
+            <button class=" btn align-self-start bg-dark text-light w-25 rounded" (click)="addItem()">+</button>
+        </div>
+        <button class="btn bg-dark text-light w-25 rounded w-100 py-2">Add to cart</button>
     </div>
 </div>
