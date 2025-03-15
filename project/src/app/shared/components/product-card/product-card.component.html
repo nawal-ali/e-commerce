@@ -1,1 +1,6 @@
-<p>product-card works!</p>
+<div class="card" style="width: 18rem;" *ngFor="let item of products">
+    <img src={{item.image}} class="card-img-top" alt="...">
+    <div class="card-body">
+        <p class="card-text">{{item.description}}</p>
+    </div>
+</div>
