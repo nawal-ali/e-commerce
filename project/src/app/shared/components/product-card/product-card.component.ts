@@ -9,9 +9,19 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductCardComponent {
   products:any = [];
-  constructor(public product :ProductService){
-    this.product.getProducts().subscribe((res:any) =>
-      this.products.push(res)
+  numOfItems :number=0;
+  // stars =[1,2,3,4,5];
+  constructor(private product :ProductService){
+    this.product.getProducts().subscribe(res=>{
+      this.products = res}
     )
+  }
+  addItem(){
+    this.numOfItems+=1;
+  }
+  removeItem(){
+    if(this.numOfItems>0){
+      this.numOfItems-=1;
+    }
   }
 }
