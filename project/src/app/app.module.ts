@@ -19,6 +19,7 @@ import { ProductCardComponent } from './shared/components/product-card/product-c
 import { BannerSliderComponent } from './shared/components/banner-slider/banner-slider.component';
 import { FavComponent } from './pages/fav/fav.component';
 import { provideHttpClient } from '@angular/common/http';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { provideHttpClient } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CarouselModule
   ],
   providers: [
     provideHttpClient(),
