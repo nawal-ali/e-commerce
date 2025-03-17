@@ -36,12 +36,12 @@ import { provideHttpClient } from '@angular/common/http';
     NavbarComponent,
     FooterComponent,
     ProductCardComponent,
-    BannerSliderComponent,
     FavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BannerSliderComponent,
   ],
   providers: [
     provideHttpClient(),

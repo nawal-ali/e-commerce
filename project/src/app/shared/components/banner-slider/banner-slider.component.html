@@ -1,4 +1,4 @@
-<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+<!-- <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner w-75 m-auto">
         <div class="carousel-item active">
             <div class="d-flex justify-content-between">
@@ -43,4 +43,35 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
+</div> -->
+<div class="p-3">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+        (breakpoint)="breakpoint($event)" *ngIf="category">
+        <div ngxSlickItem class="slide card mx-3 bg-secondary-subtle" *ngFor="let slide of slides"
+            routerLink={{slide.routerlink}} style="cursor: pointer">
+            <img src="{{ slide.img }}" alt="" class="card-img-top w-75 m-auto p-3">
+            <h4 class=" card-title text-uppercase text-center p-2">
+                {{slide.body}}
+            </h4>
+        </div>
+    </ngx-slick-carousel>
+
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig2" (init)="slickInit($event)"
+        (breakpoint)="breakpoint($event)" *ngIf="dailySailes">
+        <div ngxSlickItem class="slide mx-3 card p-0 " *ngFor="let slide of slides">
+            <div class="row p-4 pe-0" style="height: 450px;cursor: pointer">
+                <div class="col-5 d-flex align-items-center">
+                    <img src="{{ slide.image }}" class="m-auto" alt="..." width="100%">
+                </div>
+                <div class="col-6 d-flex align-items-center">
+                    <div>
+                        <h5 class="">{{slide.name}}</h5>
+                        <p><span *ngFor="let star of getStars(slide.rating)">⭐</span> {{slide.rating}}</p>
+                        <p class="text-danger text-decoration-line-through">{{slide.price}}</p>
+                        <p class=""><small class="text-body-secondary">{{slide.description}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ngx-slick-carousel>
 </div>
