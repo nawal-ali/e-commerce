@@ -10,6 +10,6 @@ export class ProductService {
   constructor(private http:HttpClient) { }
 
   getProducts():Observable<any>{
-    return this.http.get("https://run.mocky.io/v3/ac14fc23-a5ba-42b5-a806-3509e5fc5634");
+    return this.http.get("https://run.mocky.io/v3/683d6cd1-d1c1-45c0-96bc-2a211123452a");
   }
 }

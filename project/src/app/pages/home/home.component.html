@@ -1,5 +1,5 @@
-<div class="w-100 bg-dark row rounded p-2 p-sm-5 my-5">
-    <div class="col-12 col-lg-4 col-auto">
+<!-- <div class="w-100 bg-dark row rounded p-2 p-sm-5 my-5">
+    <div class="col-12 col-lg-5">
         <a routerLink="/speaker" class="link-success link-underline link-underline-opacity-0 fs-4">Blutooth-speaker</a>
         <p class="text-light fs-1 mt-5 mb-0">Enhance Your </p>
         <p class="text-light fs-1 mt-0">Music Experience</p>
@@ -23,18 +23,50 @@
         </div>
         <button class="btn btn-success fs-5">Buy Now!</button>
     </div>
-    <div class="position-relative mt-4 col-12 col-lg-8 text-end">
+    <div class="position-relative mt-4 col-12 col-lg-7 text-center">
         <div class="w-100 h-100 position-absolute top-50 start-50 translate-middle" style="background: rgba(255, 255, 255, 0.12);
     border-radius: 50%;
-    filter:blur(60px);">.</div>
+    filter:blur(60px);"></div>
         <img src="./imgs/Union.png" alt="" class="z-1 d-none d-md-block">
         <img src="./imgs/Union.png" alt="" class="z-1 w-75 d-md-none">
-        <!-- <img src="./imgs/Union.png" alt="" class="z-1 w-25 d-sm-none"> -->
     </div>
-    <!-- <img src="./imgs/Ellipse 23.png" alt="" class="position-absolute top-0 end-0 w-75"> -->
+</div> -->
+<app-large-banner [bannerTitle]="'Enhance Your Music Experience'" [bannerImg]="'./imgs/Union.png'"
+    [bannerButton]="'Buy Now!'" [bannerCategory]="'Blutooth-speaker'" [routerLink]="'/speaker'" [showCounter]="true"
+    [bg_color]="'bg-dark'" [text_color]="'text-light'" />
 
-</div>
 <p class="text-center fs-1 my-5">Popular Categories</p>
 <app-banner-slider [slides]="slider1" [category]="true" />
+
+
 <p class="fs-1 my-5">Daily Best Sales</p>
 <app-banner-slider [slides]="products" [dailySailes]="true" />
+<app-large-banner [bannerTitle]="'Macbook Pro'" [bannerImg]="'./imgs/mcbook.png'"
+    [bannerDesc]="'Apple M1 Max Chip. 32GB Unified Memory, 1TB SSD Storage'" [bannerButton]="'Order Now!'"
+    [bannerCategory]="'laptop'" [routerLink]="'/laptop'" [bg_color]="'bg-secondary-subtle'"
+    [text_color]="'text-dark'" />
+
+
+<div class="d-flex flex-column flex-lg-row justify-content-between mb-5 d-" style="gap: 2%;">
+    <div class="small-banner rounded bg-black w-50 position-relative overflow-hidden">
+        <img src="./imgs/ps5.png" alt="ps5">
+        <div class="position-absolute bottom-0 p-3 text-light w-100 rounded-top-circle"
+            style="background-color: rgba(0, 0, 0, 0.683);">
+            <div class="w-75 m-auto text-center">
+                <h3>PlayStation 5</h3>
+                <p>Black and White version of the PS5 coming out on sale.</p>
+                <a class="link-opacity-75-hover link-underline-light link-light">Shop Now!</a>
+            </div>
+        </div>
+    </div>
+    <div class="small-banner rounded bg-black w-50 position-relative overflow-hidden">
+        <img src="./imgs/xbox360.png" alt="xbox360">
+        <div class="position-absolute bottom-0 p-3 text-light w-100 rounded-top-circle"
+            style="background-color: rgba(0, 0, 0, 0.683);">
+            <div class="w-75 m-auto text-center">
+                <h3>Xbox 360</h3>
+                <p>Black and White version of the xbox coming out on sale.</p>
+                <a class="link-opacity-75-hover link-underline-light link-light">Shop Now!</a>
+            </div>
+        </div>
+    </div>

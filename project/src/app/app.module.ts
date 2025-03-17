@@ -19,6 +19,7 @@ import { ProductCardComponent } from './shared/components/product-card/product-c
 import { BannerSliderComponent } from './shared/components/banner-slider/banner-slider.component';
 import { FavComponent } from './pages/fav/fav.component';
 import { provideHttpClient } from '@angular/common/http';
+import { LargeBannerComponent } from './shared/components/large-banner/large-banner.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { provideHttpClient } from '@angular/common/http';
     NavbarComponent,
     FooterComponent,
     ProductCardComponent,
-    FavComponent
+    FavComponent,
+    LargeBannerComponent
   ],
   imports: [
     BrowserModule,
