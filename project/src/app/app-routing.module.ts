@@ -10,9 +10,11 @@ import { BluetoothSpeakerComponent } from './pages/bluetooth-speaker/bluetooth-s
 import { AccessoriesComponent } from './pages/accessories/accessories.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { FavComponent } from './pages/fav/fav.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
+  {path:"home/:productId", component:ProductDetailsComponent},
     {path:"desktop", component:DesktopComponent},
     {path:"laptop",component:LaptopComponent},
     {path:"monitor",component:MonitorComponent},

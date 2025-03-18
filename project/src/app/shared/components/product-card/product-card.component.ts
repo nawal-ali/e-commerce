@@ -10,7 +10,9 @@ import { ProductService } from '../../services/product.service';
 export class ProductCardComponent {
   products:any = [];
   numOfItems :number=0;
-  // stars =[1,2,3,4,5];
+  getStars(x:number): number[]{
+    return Array((Math.floor(x))).fill(0);
+  }
   constructor(private product :ProductService){
     this.product.getProducts().subscribe(res=>{
       this.products = res}

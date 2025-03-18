@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DesktopComponent } from './pages/desktop/desktop.component';
@@ -20,6 +19,8 @@ import { BannerSliderComponent } from './shared/components/banner-slider/banner-
 import { FavComponent } from './pages/fav/fav.component';
 import { provideHttpClient } from '@angular/common/http';
 import { LargeBannerComponent } from './shared/components/large-banner/large-banner.component';
+import { SharedModule } from './shared/shared.module';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -38,12 +39,14 @@ import { LargeBannerComponent } from './shared/components/large-banner/large-ban
     FooterComponent,
     ProductCardComponent,
     FavComponent,
-    LargeBannerComponent
+    LargeBannerComponent,
+    BannerSliderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BannerSliderComponent,
+    SharedModule,
+    // SlickCarouselModule
   ],
   providers: [
     provideHttpClient(),
