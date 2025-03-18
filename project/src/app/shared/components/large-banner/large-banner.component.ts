@@ -1,14 +1,20 @@
 import { Component, Input } from '@angular/core';
-import { tick } from '@angular/core/testing';
-import { Title } from '@angular/platform-browser';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-large-banner',
-  standalone: false,
+  standalone: false, 
   templateUrl: './large-banner.component.html',
   styleUrl: './large-banner.component.css'
 })
 export class LargeBannerComponent {
+  products:any[] = [];
+  constructor(private product:ProductService){
+    this.product.getProducts().subscribe(res=>{
+      console.log(res);
+      this.products = res;
+    })
+  }
   @Input() bannerTitle : string ='';
   @Input() bannerDesc : string ='';
   @Input() bannerButton : string ='';
