@@ -1,8 +1,7 @@
 <div class="container">
     <div class="{{bg_color}} row rounded p-2 p-sm-5 my-5 mb-3">
         <div class="col-12 col-lg-6">
-            <a routerLink={{bannerDetails.router}}
-                class="link-success link-underline link-underline-opacity-0 fs-4">{{bannerDetails.category}}</a>
+            <a class="link-success link-underline link-underline-opacity-0 fs-4">{{bannerDetails.category}}</a>
             <h1 class="{{text_color}} fs-1 mt-5 mb-0">{{bannerDetails.title}}</h1>
             <p class="{{text_color}} my-4">{{bannerDetails.desc}}</p>
             <div class="d-flex my-4" *ngIf="showCounter">
@@ -23,8 +22,7 @@
                     <p class="my-0 text-light text-center">seconds</p>
                 </div>
             </div>
-            <button class="btn btn-success fs-5 my-3"
-                routerLink="home/{{products[0]?.product_id}}">{{bannerDetails.button}}</button>
+            <button class="btn btn-success fs-5 my-3" [routerLink]="product_link">{{bannerDetails.button}}</button>
         </div>
         <div class="position-relative mt-4 col-12 col-lg-6 text-center">
             <div class="w-100 h-100 position-absolute top-50 start-50 translate-middle" style="background: rgba(255, 255, 255, 0.12);

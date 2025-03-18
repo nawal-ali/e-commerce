@@ -8,6 +8,7 @@ import { ProductService } from '../../services/product.service';
   styleUrl: './large-banner.component.css'
 })
 export class LargeBannerComponent {
+
   products:any[] = [];
   constructor(private product:ProductService){
     this.product.getProducts().subscribe(res=>{
@@ -24,6 +25,7 @@ export class LargeBannerComponent {
   @Input() showCounter : boolean =false;
   @Input() bg_color : string ='';
   @Input() text_color : string ='';
+  @Input() product_link:any ;
   get bannerDetails() {
     return{
     title: this.bannerTitle,

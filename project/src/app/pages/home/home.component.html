@@ -32,8 +32,8 @@
     </div>
 </div> -->
 <app-large-banner [bannerTitle]="'Enhance Your Music Experience'" [bannerImg]="'./imgs/Union.png'"
-    [bannerButton]="'Buy Now!'" [bannerCategory]="'Blutooth-speaker'" [routerLink]="'/speaker'" [showCounter]="true"
-    [bg_color]="'bg-dark'" [text_color]="'text-light'" />
+    [bannerButton]="'Buy Now!'" [bannerCategory]="'Blutooth-speaker'" [routerLink]="'/home/' + products[23]?.product_id"
+    [showCounter]="true" [bg_color]="'bg-dark'" [text_color]="'text-light'" />
 
 <p class="text-center fs-1 my-5">Popular Categories</p>
 <app-banner-slider [slides]="slider1" [category]="true" />
@@ -43,7 +43,7 @@
 <app-banner-slider [slides]="dailySaleProducts" [dailySailes]="true" />
 <app-large-banner [bannerTitle]="'Macbook Pro'" [bannerImg]="'./imgs/mcbook.png'"
     [bannerDesc]="'Apple M1 Max Chip. 32GB Unified Memory, 1TB SSD Storage'" [bannerButton]="'Order Now!'"
-    [bannerCategory]="'laptop'" [routerLink]="'/laptop'" [bg_color]="'bg-secondary-subtle'"
+    [bannerCategory]="'laptop'" [routerLink]="'/home/' + products[20]?.product_id" [bg_color]="'bg-secondary-subtle'"
     [text_color]="'text-dark'" />
 
 
@@ -55,7 +55,8 @@
             <div class="w-75 m-auto text-center">
                 <h3>PlayStation 5</h3>
                 <p>Black and White version of the PS5 coming out on sale.</p>
-                <a class="link-opacity-75-hover link-underline-light link-light">Shop Now!</a>
+                <a class="link-opacity-75-hover link-underline-light link-light"
+                    [routerLink]="'/home/' + products[22]?.product_id">Shop Now!</a>
             </div>
         </div>
     </div>
@@ -66,43 +67,48 @@
             <div class="w-75 m-auto text-center">
                 <h3>Xbox 360</h3>
                 <p>Black and White version of the xbox coming out on sale.</p>
-                <a class="link-opacity-75-hover link-underline-light link-light">Shop Now!</a>
+                <a class="link-opacity-75-hover link-underline-light link-light"
+                    [routerLink]="'/home/' + products[21]?.product_id">Shop Now!</a>
             </div>
         </div>
     </div>
 </div>
 
 
-<!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
-    (breakpoint)="breakpoint($event)">
-    <div ngxSlickItem class="slide mx-3 card p-0 " *ngFor="let slide of dailySaleProducts" style="cursor: pointer">
-        <div class="row p-4 pe-0" style="height: 450px;cursor: pointer">
-            <div class="col-5 d-flex align-items-center">
-                <img src="{{ slide.image }}" class="m-auto" alt={{slide.name}} width="100%">
-            </div>
-            <div class="col-6 d-flex align-items-center">
-                <div>
-                    <h5>{{slide.name}}</h5>
-                    <p class="mt-3"><span *ngFor="let star of getStars(slide.rating)">⭐</span> {{slide.rating}}</p>
-                    <p class="text-danger text-decoration-line-through">{{slide.price}}</p>
-                    <p><small class="text-body-secondary">{{slide.description}}</small></p>
-                    <button class="btn bg-dark text-light w-100 my-3" routerLink="/home/{{slide.product_id}}">Show
-                        Product</button>
-                    <div class="d-flex w-100 mb-3">
-                        <button class="btn align-self-start bg-dark text-light w-25 rounded"
-                            (click)="removeItem()">-</button>
-                        <p class="border border-1 rounded ps-2 pe-2 flex-fill text-center mx-2 mb-0 item-number fs-4">
-                            {{numOfItems}}
-                        </p>
-                        <button class=" btn align-self-start bg-dark text-light w-25 rounded"
-                            (click)="addItem()">+</button>
+<!-- <ngx-slick-carousel class=" carousel" #slickModal="slick-carousel" [config]="slideConfig"
+                    (init)="slickInit($event)" (breakpoint)="breakpoint($event)">
+                    <div ngxSlickItem class="slide mx-3 card p-0 " *ngFor="let slide of dailySaleProducts"
+                        style="cursor: pointer">
+                        <div class="row p-4 pe-0" style="height: 450px;cursor: pointer">
+                            <div class="col-5 d-flex align-items-center">
+                                <img src="{{ slide.image }}" class="m-auto" alt={{slide.name}} width="100%">
+                            </div>
+                            <div class="col-6 d-flex align-items-center">
+                                <div>
+                                    <h5>{{slide.name}}</h5>
+                                    <p class="mt-3"><span *ngFor="let star of getStars(slide.rating)">⭐</span>
+                                        {{slide.rating}}</p>
+                                    <p class="text-danger text-decoration-line-through">{{slide.price}}</p>
+                                    <p><small class="text-body-secondary">{{slide.description}}</small></p>
+                                    <button class="btn bg-dark text-light w-100 my-3"
+                                        routerLink="/home/{{slide.product_id}}">Show
+                                        Product</button>
+                                    <div class="d-flex w-100 mb-3">
+                                        <button class="btn align-self-start bg-dark text-light w-25 rounded"
+                                            (click)="removeItem()">-</button>
+                                        <p
+                                            class="border border-1 rounded ps-2 pe-2 flex-fill text-center mx-2 mb-0 item-number fs-4">
+                                            {{numOfItems}}
+                                        </p>
+                                        <button class=" btn align-self-start bg-dark text-light w-25 rounded"
+                                            (click)="addItem()">+</button>
+                                    </div>
+                                    <button class="btn bg-dark text-light w-25 rounded w-100 py-2">Add to cart</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <button class="btn bg-dark text-light w-25 rounded w-100 py-2">Add to cart</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</ngx-slick-carousel> -->
+                    </ngx-slick-carousel> -->
 
 
 

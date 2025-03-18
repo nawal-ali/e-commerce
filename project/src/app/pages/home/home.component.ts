@@ -13,6 +13,7 @@ export class HomeComponent {
   dailySaleProducts:any =[];
     constructor(private product:ProductService){
       product.getProducts().subscribe(res=>{
+        this.products = res;
         this.dailySaleProducts = res.filter((f: any) => f.dailySale === true);
         
       })

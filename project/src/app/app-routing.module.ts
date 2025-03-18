@@ -15,6 +15,7 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
 const routes: Routes = [
   {path:"", component:HomeComponent},
   {path:"home/:productId", component:ProductDetailsComponent},
+  // {path:"speaker/:productId", component:ProductDetailsComponent},
     {path:"desktop", component:DesktopComponent},
     {path:"laptop",component:LaptopComponent},
     {path:"monitor",component:MonitorComponent},
