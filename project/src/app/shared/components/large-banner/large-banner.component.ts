@@ -12,7 +12,7 @@ export class LargeBannerComponent {
   products:any[] = [];
   constructor(private product:ProductService){
     this.product.getProducts().subscribe(res=>{
-      console.log(res);
+      // console.log(res);
       this.products = res;
     })
   }

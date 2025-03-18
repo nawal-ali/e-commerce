@@ -1,4 +1,5 @@
 import { Component,Input } from '@angular/core';
+import { ProductService } from '../../services/product.service';
 // import { SlickCarouselModule } from 'ngx-slick-carousel';
 // import { CommonModule } from '@angular/common';
 // import { RouterModule } from '@angular/router';
@@ -16,7 +17,22 @@ export class BannerSliderComponent {
   @Input() monthSales:boolean = false;
   @Input() category:boolean = false;
   @Input() slides: any[] = [];
-  // @Input() slidesToShow: number = 0;
+  priceAfterDiscount:number[] = [];
+  products:any[] = [];
+  x!:number;
+  constructor(private product:ProductService){
+    this.product.getProducts().subscribe(res=>{
+      console.log("this is res"+res);
+      this.products = res;
+      this.products.map(item =>{
+        if(item.discount>0){
+        this.x = item.price - (item.discount / 100) * item.price;
+        this.priceAfterDiscount.push(Math.floor(this.x))
+      }
+      })
+      console.log("this is price"+this.priceAfterDiscount);
+    })
+  }
   slideConfig = {
     "slidesToShow": 4,
     "slidesToScroll": 2,
@@ -27,21 +43,21 @@ export class BannerSliderComponent {
     "infinite":true,
     "responsive":[
       {
-        breakpoint: 1024,
+        breakpoint: 1600,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 700,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 580,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1
