@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ProductService } from '../../shared/services/product.service';
 
 @Component({
@@ -9,12 +9,15 @@ import { ProductService } from '../../shared/services/product.service';
 })
 export class HomeComponent {
   products :any =[];
-  numOfItems:number =0;
+  numOfItems:number = 0;
   dailySaleProducts:any =[];
+  monthSaleProducts:any =[];
+
     constructor(private product:ProductService){
       product.getProducts().subscribe(res=>{
         this.products = res;
         this.dailySaleProducts = res.filter((f: any) => f.dailySale === true);
+        this.monthSaleProducts = res.filter((f: any) => f.monthSale === true);
         
       })
     }

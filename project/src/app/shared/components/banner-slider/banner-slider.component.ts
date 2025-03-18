@@ -12,7 +12,8 @@ import { Component,Input } from '@angular/core';
   styleUrl: './banner-slider.component.css'
 })
 export class BannerSliderComponent {
-  @Input() dailySailes:boolean = false;
+  @Input() dailySales:boolean = false;
+  @Input() monthSales:boolean = false;
   @Input() category:boolean = false;
   @Input() slides: any[] = [];
   // @Input() slidesToShow: number = 0;
@@ -56,7 +57,7 @@ export class BannerSliderComponent {
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 3000,
-  pauseOnHover: true, // Fixed typo
+  pauseOnHover: true,
   dots: true,
   infinite: true,
   responsive: [
