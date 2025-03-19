@@ -61,9 +61,8 @@
 
 
 
-
-    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig2" (init)="slickInit($event)"
-        (breakpoint)="breakpoint($event)" *ngIf="dailySales">
+    <!-- (breakpoint)="breakpoint($event)" (init)="slickInit($event)"-->
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig2" *ngIf="dailySales">
         <div ngxSlickItem class="slide mx-3 card p-0 position-relative " *ngFor="let slide of slides; let i = index;" s>
             <div class="position-absolute top-0 start-0 bg-secondary-subtle p-3 rounded text-center" style="width: 20%;"
                 *ngIf="slide.availability==false">Out Of Stock</div>
@@ -98,7 +97,8 @@
                             <button class=" btn align-self-start bg-dark text-light w-25 rounded"
                                 (click)="addItem()">+</button>
                         </div> -->
-                        <button class="btn bg-dark text-light w-25 rounded w-100 py-2">Add to cart</button>
+                        <button class="btn bg-dark text-light w-25 rounded w-100 py-2" tabindex="-1">Add to
+                            cart</button>
                     </div>
                 </div>
             </div>
@@ -110,9 +110,8 @@
 
 
 
-
-    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
-        (breakpoint)="breakpoint($event)" *ngIf="monthSales">
+    <!-- (breakpoint)="breakpoint($event)" (init)="slickInit($event)"-->
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig3" *ngIf="monthSales">
         <div ngxSlickItem class="slide mx-3 card p-0 position-relative " *ngFor="let slide of slides; let i = index">
             <div class="position-absolute top-0 start-0 bg-secondary-subtle p-3 rounded text-center" style="width: 30%;"
                 *ngIf="slide.availability==false">Out Of Stock</div>
@@ -142,7 +141,7 @@
                             <button class=" btn align-self-start bg-dark text-light w-25 rounded"
                                 (click)="addItem()">+</button>
                         </div> -->
-                <button class="btn bg-dark text-light w-25 rounded w-100 py-2">Add to cart</button>
+                <button class="btn bg-dark text-light w-25 rounded w-100 py-2" tabindex="-1">Add to cart</button>
             </div>
         </div>
     </ngx-slick-carousel>

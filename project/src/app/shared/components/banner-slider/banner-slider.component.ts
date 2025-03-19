@@ -101,6 +101,39 @@ export class BannerSliderComponent {
   ]
   };
 
+  slideConfig3 = {
+    "slidesToShow": 4,
+    "slidesToScroll": 2,
+    "autoplay":true,
+    "autoplaySpeed":3000,
+    "pauswOnHovere": true,
+    "dots":true,
+    "infinite":true,
+    "responsive":[
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
+
   slickInit(e:any) {
     console.log('slick initialized');
   }
