@@ -18,6 +18,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { ProductCardComponent } from './shared/components/product-card/product-card.component';
 import { BannerSliderComponent } from './shared/components/banner-slider/banner-slider.component';
 import { FavComponent } from './pages/fav/fav.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { FavComponent } from './pages/fav/fav.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    provideHttpClient(),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
