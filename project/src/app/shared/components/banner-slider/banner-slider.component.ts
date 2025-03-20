@@ -57,7 +57,7 @@ export class BannerSliderComponent {
         }
       },
       {
-        breakpoint: 580,
+        breakpoint: 550,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1
