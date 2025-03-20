@@ -1,8 +1,68 @@
-<div class="card" style="width: 18rem;">
-    <img src={{single?.image}} class=" card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{single?.name}}</h5>
-        <p class="card-text">{{single?.price}}</p>
-        <p class="card-text">{{single?.description}}</p>
+<div class="container mt-5" *ngFor="let single of single">
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <div class="row p-4 border border-1 rounded position-relative " style="width: 100%">
+                <img src="./imgs/saleLogo2.png" alt="" class="position-absolute top-0 start-100 translate-middle"
+                    style="width: 15%;" *ngIf="single.discount>0">
+                <div class="col-12 col-md-6">
+                    <img src={{single?.image}} class=" card-img-top" alt="...">
+                </div>
+                <div class="col-12 col-md-6 d-flex align-items-center">
+                    <div class="card-body">
+                        <h2 class="card-title mb-5 text-dark">{{single?.name}}</h2>
+                        <p><span *ngFor="let r of rate" class="me-1">⭐</span>{{single.rating}}</p>
+                        <div *ngIf="single.discount>0" class="d-flex align-items-center gap-3 mb-3">
+                            <p class="card-text text-danger fs-2">
+                                {{priceAfterDiscount}}$</p>
+                            <p class="card-text text-secondary text-decoration-line-through align-self-start fs-5">
+                                {{single?.price}}</p>
+                        </div>
+                        <p class="card-text text-dark fs-3" *ngIf="single.discount == 0">{{single?.price}}</p>
+                        <p class="card-text mb-5 text-secondary">{{single?.description}}</p>
+                        <button class="btn bg-dark text-light rounded w-75 py-2 ms-4 fs-5">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 d-flex align-items-center justify-content-center flex-column">
+            <h1>Product Details</h1>
+            <table class="table table-success table-bordered border-success" style="width: 90%; margin: 4% auto;">
+                <!-- <thead>
+                    <tr>
+                        <th scope="col">Product Details</th>
+                    </tr>
+                </thead> -->
+                <tbody>
+                    <tr>
+                        <th scope="row">unit</th>
+                        <td>{{single.unit}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">availability</th>
+                        <td *ngIf="single.availability==true">In Stock</td>
+                        <td *ngIf="single.availability==false">Out Of Stock</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">brand</th>
+                        <td colspan="2">{{single.brand}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">category</th>
+                        <td colspan="2">{{single.category}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <h2 class="text-center mt-5">Some Reviews</h2>
+    <div class="row m-5">
+        <div class="col-12 col-md-6" *ngFor="let rev of reviews;let i = index">
+            <div class="card">
+                <div class="card-body">
+                    <p><span *ngFor="let r of clientRate2[i]" class="me-1">⭐</span>{{reviews[i].rating}}</p>
+                    <p>{{reviews[i].comment}}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
