@@ -9,15 +9,26 @@ import { ProductService } from '../../shared/services/product.service';
 })
 export class HomeComponent {
   products :any =[];
+  all:boolean = true;
+  Laptop_Desktop:boolean = false;
+  Gaming:boolean = false;
+  Monitors:boolean = false;
   numOfItems:number = 0;
   dailySaleProducts:any =[];
   monthSaleProducts:any =[];
+  monthSale_laptopProducts:any =[];
+  monthSale_gamingProducts:any =[];
+  monthSale_monitorProducts:any =[];
 
     constructor(private product:ProductService){
+
       product.getProducts().subscribe(res=>{
         this.products = res;
         this.dailySaleProducts = res.filter((f: any) => f.dailySale === true);
         this.monthSaleProducts = res.filter((f: any) => f.monthSale === true);
+        this.monthSale_laptopProducts = res.filter((f: any) => f.monthSale === true && f.category === "laptop"|| f.category === "desktop");
+        this.monthSale_gamingProducts = res.filter((f: any) => f.monthSale === true && f.category === "gaming");
+        this.monthSale_monitorProducts = res.filter((f: any) => f.monthSale === true && f.category === "monitor");
         
       })
     }
@@ -30,7 +41,30 @@ slider1=[
   {img:'./imgs/monitors.png',body:'monitors' ,routerlink:'/monitor'},
 ]
 
-
+allClick(){
+  this.Laptop_Desktop = false;
+  this.Gaming= false;
+  this.Monitors = false;
+  this.all = true;
+}
+laptopClick(){
+  this.Gaming= false;
+  this.all = false;
+  this.Monitors = false;
+  this.Laptop_Desktop = true
+}
+gamingClick(){
+  this.Laptop_Desktop = false;
+  this.all = false;
+  this.Monitors = false;
+  this.Gaming= true;
+}
+monitorClick(){
+  this.Laptop_Desktop = false;
+  this.all = false;
+  this.Gaming= false;
+  this.Monitors = true;
+}
 addItem(){
   this.numOfItems+=1;
 }

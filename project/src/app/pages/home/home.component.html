@@ -102,7 +102,33 @@
 </div>
 
 <p class="fs-1" style="margin: 6% 0 2%;">The Month Sales</p>
-<app-banner-slider [slides]="monthSaleProducts" [monthSales]="true" />
+<!-- <div class="d-flex gap-5 justify-content-center align-items-center  border-bottom w-50 m-auto mb-3 p-2"> -->
+<div class="row text-center">
+    <div class="col-6 col-md-3">
+        <p class="fs-5" (click)="allClick()" [ngClass]="{'text-success border-bottom pb-2':all}"
+            style="cursor: pointer;">
+            All
+        </p>
+    </div>
+    <div class="col-6 col-md-3">
+        <p class="fs-5" (click)="laptopClick()" [ngClass]="{'text-success border-bottom pb-2':Laptop_Desktop}"
+            style="cursor: pointer;">
+            Laptop&Desktop</p>
+    </div>
+    <div class="col-6 col-md-3">
+        <p class="fs-5" (click)="gamingClick()" [ngClass]="{'text-success border-bottom pb-2':Gaming}"
+            style="cursor: pointer;">Gaming</p>
+    </div>
+    <div class="col-6 col-md-3">
+        <p class="fs-5" (click)="monitorClick()" [ngClass]="{'text-success border-bottom pb-2':Monitors}"
+            style="cursor: pointer;">Monitors</p>
+    </div>
+</div>
+<!-- </div> -->
+<app-banner-slider *ngIf="all" [slides]="monthSaleProducts" [monthSales]="true" />
+<app-banner-slider *ngIf="Laptop_Desktop" [slides]="monthSale_laptopProducts" [monthSales]="true" />
+<app-banner-slider *ngIf="Gaming" [slides]="monthSale_gamingProducts" [monthSales]="true" />
+<app-banner-slider *ngIf="Monitors" [slides]="monthSale_monitorProducts" [monthSales]="true" />
 
 
 
