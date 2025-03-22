@@ -10,6 +10,7 @@ import { BluetoothSpeakerComponent } from './pages/bluetooth-speaker/bluetooth-s
 import { AccessoriesComponent } from './pages/accessories/accessories.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { FavComponent } from './pages/fav/fav.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
@@ -21,7 +22,10 @@ const routes: Routes = [
     {path:"speaker", component:BluetoothSpeakerComponent},
     {path:"accessories", component:AccessoriesComponent},
     {path:"cart",component:CartComponent},
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
     {path:"favorite",component:FavComponent},
+    { path: '', component: HomeComponent },
+    { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

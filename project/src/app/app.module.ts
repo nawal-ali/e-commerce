@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { LoginComponent } from './pages/login/login.component'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DesktopComponent } from './pages/desktop/desktop.component';
@@ -19,6 +19,10 @@ import { ProductCardComponent } from './shared/components/product-card/product-c
 import { BannerSliderComponent } from './shared/components/banner-slider/banner-slider.component';
 import { FavComponent } from './pages/fav/fav.component';
 import { provideHttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CartService } from './shared/services/cart.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -31,20 +35,23 @@ import { provideHttpClient } from '@angular/common/http';
     HomeComponent,
     BluetoothSpeakerComponent,
     AccessoriesComponent,
-    CartComponent,
     ProductDetailsComponent,
     NavbarComponent,
     FooterComponent,
     ProductCardComponent,
     BannerSliderComponent,
-    FavComponent
+    FavComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,  
+    HttpClientModule,
   ],
   providers: [
     provideHttpClient(),
+    CartService,
   ],
   bootstrap: [AppComponent]
 })
