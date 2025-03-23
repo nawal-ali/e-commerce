@@ -41,6 +41,7 @@ import { CartService } from './shared/services/cart.service';
     ProductCardComponent,
     BannerSliderComponent,
     FavComponent,
+    LoginComponent
 
   ],
   imports: [
