@@ -1,1 +1,34 @@
+<div class="cart-container">
+  <button (click)="toggleCart()">Toggle Cart</button> <!-- زر لفتح الكارت -->
+
+  <div *ngIf="isCartOpen"> <!-- عرض الكارت فقط إذا كان isCartOpen true -->
+    <h2>Shopping Cart</h2>
+    
+    <div *ngIf="products.length; else emptyCart">
+      <div class="cart-item" *ngFor="let item of products; let i = index">
+        <img [src]="item.image" alt="{{ item.name }}">
+        <div class="item-details">
+          <h4>{{ item.name }}</h4>
+          <p>Price: ${{ item.price }}</p>
+          <div class="quantity">
+            <button (click)="decreaseQuantity(item)">-</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="increaseQuantity(item)">+</button>
+          </div>
+          <p>Total: ${{ item.price * item.quantity }}</p>
+          <button class="remove-btn" (click)="removeFromCart(item)">Remove</button>
+        </div>
+      </div>
+      
+      <div class="cart-summary">
+        <button class="checkout-btn">Checkout</button>
+      </div>
+    </div>
+  
+    <ng-template #emptyCart>
+      <p class="empty-message">Your cart is empty. Start shopping now!</p>
+    </ng-template>
+  </div>
+</div>
+
 <p>cart works!</p>
