@@ -19,6 +19,8 @@ import { ProductCardComponent } from './shared/components/product-card/product-c
 import { BannerSliderComponent } from './shared/components/banner-slider/banner-slider.component';
 import { FavComponent } from './pages/fav/fav.component';
 import { provideHttpClient } from '@angular/common/http';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,11 +39,13 @@ import { provideHttpClient } from '@angular/common/http';
     FooterComponent,
     ProductCardComponent,
     BannerSliderComponent,
-    FavComponent
+    FavComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient(),
