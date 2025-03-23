@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +19,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { ProductCardComponent } from './shared/components/product-card/product-card.component';
 import { BannerSliderComponent } from './shared/components/banner-slider/banner-slider.component';
 import { FavComponent } from './pages/fav/fav.component';
-import { provideHttpClient } from '@angular/common/http';
+import { ProductCategoryComponent } from './shared/components/product-category/product-category.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -37,15 +39,15 @@ import { provideHttpClient } from '@angular/common/http';
     FooterComponent,
     ProductCardComponent,
     BannerSliderComponent,
-    FavComponent
+    FavComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule ,
+    CommonModule
   ],
-  providers: [
-    provideHttpClient(),
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

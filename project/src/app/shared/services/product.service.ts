@@ -1,15 +1,25 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
+  private apiUrl = 'https://run.mocky.io/v3/2c0ebbbb-f726-4334-9fe8-b6bdf17cb34a';
+  private selectedCategory = new BehaviorSubject<string>('');
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getProducts():Observable<any>{
-    return this.http.get("https://run.mocky.io/v3/00c68d38-6b37-4f8d-8785-6153d8f27daf");
+  getProducts(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
+  }
+
+  setSelectedCategory(category: string): void {
+    this.selectedCategory.next(category);
+  }
+
+  getSelectedCategory(): Observable<string> {
+    return this.selectedCategory.asObservable();
   }
 }
