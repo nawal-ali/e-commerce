@@ -1,36 +1,3 @@
-<!-- <div class="w-100 bg-dark row rounded p-2 p-sm-5 my-5">
-    <div class="col-12 col-lg-5">
-        <a routerLink="/speaker" class="link-success link-underline link-underline-opacity-0 fs-4">Blutooth-speaker</a>
-        <p class="text-light fs-1 mt-5 mb-0">Enhance Your </p>
-        <p class="text-light fs-1 mt-0">Music Experience</p>
-        <div class="d-flex my-4">
-            <div class="mx-2 ms-0">
-                <p class="rounded-circle bg-light text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100 ">05</p>
-                <p class="my-0 text-light text-center">days</p>
-            </div>
-            <div class="mx-2">
-                <p class="rounded-circle bg-light text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">23</p>
-                <p class="my-0 text-light text-center">hours</p>
-            </div>
-            <div class="mx-2">
-                <p class="rounded-circle bg-light text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">59</p>
-                <p class="my-0 text-light text-center">minutes</p>
-            </div>
-            <div class="mx-2 me-0">
-                <p class="rounded-circle bg-light text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">40</p>
-                <p class="my-0 text-light text-center">seconds</p>
-            </div>
-        </div>
-        <button class="btn btn-success fs-5">Buy Now!</button>
-    </div>
-    <div class="position-relative mt-4 col-12 col-lg-7 text-center">
-        <div class="w-100 h-100 position-absolute top-50 start-50 translate-middle" style="background: rgba(255, 255, 255, 0.12);
-    border-radius: 50%;
-    filter:blur(60px);"></div>
-        <img src="./imgs/Union.png" alt="" class="z-1 d-none d-md-block">
-        <img src="./imgs/Union.png" alt="" class="z-1 w-75 d-md-none">
-    </div>
-</div> -->
 <app-large-banner [bannerTitle]="'Enhance Your Music Experience'" [bannerImg]="'./imgs/Union.png'"
     [bannerButton]="'Buy Now!'" [bannerCategory]="'Blutooth-speaker'" [routerLink]="'/home/' + products[23]?.product_id"
     [showCounter]="true" [bg_color]="'bg-dark'" [text_color]="'text-light'" />
@@ -103,6 +70,57 @@
 <app-banner-slider *ngIf="Gaming" [slides]="monthSale_gamingProducts" [monthSales]="true" />
 <app-banner-slider *ngIf="Monitors" [slides]="monthSale_monitorProducts" [monthSales]="true" />
 
-
+<div id="carouselExampleIndicators" class="carousel slide mt-5 mb-5">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active p-5">
+            <!-- <img src="..." class="d-block w-100" alt="..."> -->
+            <div>
+                <app-large-banner [bannerTitle]="'Macbook Pro'" [bannerImg]="'./imgs/mcbook.png'"
+                    [bannerDesc]="'Apple M1 Max Chip. 32GB Unified Memory, 1TB SSD Storage'"
+                    [bannerButton]="'Order Now!'" [bannerCategory]="'laptop'"
+                    [routerLink]="'/home/' + products[20]?.product_id" [bg_color]="'bg-dark'"
+                    [text_color]="'text-light'" />
+            </div>
+        </div>
+        <div class="carousel-item p-5">
+            <!-- <img src="..." class="d-block w-100" alt="..."> -->
+            <div>
+                <app-large-banner [bannerTitle]="'Macbook Pro'" [bannerImg]="'./imgs/mcbook.png'"
+                    [bannerDesc]="'Apple M1 Max Chip. 32GB Unified Memory, 1TB SSD Storage'"
+                    [bannerButton]="'Order Now!'" [bannerCategory]="'laptop'"
+                    [routerLink]="'/home/' + products[20]?.product_id" [bg_color]="'bg-dark'"
+                    [text_color]="'text-light'" />
+            </div>
+        </div>
+        <div class="carousel-item p-5">
+            <div>
+                <!-- <img src="..." class="d-block w-100" alt="..."> -->
+                <app-large-banner [bannerTitle]="'Macbook Pro'" [bannerImg]="'./imgs/mcbook.png'"
+                    [bannerDesc]="'Apple M1 Max Chip. 32GB Unified Memory, 1TB SSD Storage'"
+                    [bannerButton]="'Order Now!'" [bannerCategory]="'laptop'"
+                    [routerLink]="'/home/' + products[20]?.product_id" [bg_color]="'bg-dark'"
+                    [text_color]="'text-light'" />
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
 <!-- <app-product-card /> -->
