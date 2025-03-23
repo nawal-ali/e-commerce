@@ -4,6 +4,7 @@ import { Product } from './models/product.interface';
 
 @Component({
   selector: 'app-cart',
+  standalone: false,
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })

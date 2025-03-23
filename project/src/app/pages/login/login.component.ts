@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  standalone: true,  
+  standalone: false, 
 })
 export class LoginComponent {
   email: string = '';
