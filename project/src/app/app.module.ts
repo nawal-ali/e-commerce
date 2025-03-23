@@ -21,7 +21,7 @@ import { FavComponent } from './pages/fav/fav.component';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CartService } from './shared/services/cart.service';
-import { HttpClientModule } from '@angular/common/http';
+// import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -47,11 +47,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,  
-    HttpClientModule,
   ],
   providers: [
     provideHttpClient(),
     CartService,
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })
