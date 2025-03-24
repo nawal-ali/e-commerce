@@ -4,21 +4,32 @@
             <a class="link-success link-underline link-underline-opacity-0 fs-4">{{bannerDetails.category}}</a>
             <h1 class="{{text_color}} fs-1 mt-5 mb-0">{{bannerDetails.title}}</h1>
             <p class="{{text_color}} my-4">{{bannerDetails.desc}}</p>
-            <div class="d-flex my-4" *ngIf="showCounter">
+            <div class="d-flex my-4" *ngIf="showCounter&&dailySaleCountdown">
                 <div class="mx-2 ms-0">
-                    <p class="rounded-circle bg-light text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100 ">05</p>
+                    <p class="rounded text-light border text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100 ">
+                        <span>{{days}}</span>
+                    </p>
                     <p class="my-0 text-light text-center">days</p>
                 </div>
+                <span class="text-light pt-2">:</span>
                 <div class="mx-2">
-                    <p class="rounded-circle bg-light text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">23</p>
+                    <p class="rounded text-light border text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">
+                        <span>{{hours}}</span>
+                    </p>
                     <p class="my-0 text-light text-center">hours</p>
                 </div>
+                <span class="text-light pt-2">:</span>
                 <div class="mx-2">
-                    <p class="rounded-circle bg-light text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">59</p>
+                    <p class="rounded text-light border text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">
+                        <span>{{minutes}}</span>
+                    </p>
                     <p class="my-0 text-light text-center">minutes</p>
                 </div>
+                <span class="text-light pt-2">:</span>
                 <div class="mx-2 me-0">
-                    <p class="rounded-circle bg-light text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">40</p>
+                    <p class="rounded text-light border text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">
+                        <span>{{seconds}}</span>
+                    </p>
                     <p class="my-0 text-light text-center">seconds</p>
                 </div>
             </div>
