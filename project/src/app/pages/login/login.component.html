@@ -1,21 +1,60 @@
-<div class="login-container">
-    <h2>Login</h2>
-    <form (submit)="onSubmit()">
-        <div class="input-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" [(ngModel)]="email" name="email" required />
+<div class="login-container container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="login-card">
+          <h2 class="text-center mb-4">Login</h2>
+          <form (submit)="onSubmit()" #loginForm="ngForm">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                id="email"
+                [(ngModel)]="email"
+                name="email"
+                class="form-control"
+                required
+                email
+                #emailInput="ngModel"
+              />
+              <div *ngIf="emailInput.invalid && emailInput.touched" class="error-message">
+                <small *ngIf="emailInput.errors?.['required']">Email is required.</small>
+                <small *ngIf="emailInput.errors?.['email']">Please enter a valid email.</small>
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                id="password"
+                [(ngModel)]="password"
+                name="password"
+                class="form-control"
+                required
+                minlength="6"
+                #passwordInput="ngModel"
+              />
+              <div *ngIf="passwordInput.invalid && passwordInput.touched" class="error-message">
+                <small *ngIf="passwordInput.errors?.['required']">Password is required.</small>
+                <small *ngIf="passwordInput.errors?.['minlength']">Password must be at least 6 characters long.</small>
+              </div>
+            </div>
+  
+            <button type="submit" class="btn btn-login w-100" [disabled]="loginForm.invalid">
+              <span class="btn-text">Log In</span>
+            </button>
+  
+            <div class="links mt-3 text-center">
+              <a href="#" class="forgot-password">
+                <i class="fas fa-unlock-alt"></i> Forgot Password?
+              </a>
+              <a routerLink="/signup" class="create-account">
+                <i class="fas fa-user-plus"></i> Create an Account
+              </a>
+            </div>
+          </form>
         </div>
-
-        <div class="input-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" [(ngModel)]="password" name="password" required />
-        </div>
-
-        <button type="submit" class="login-btn">Login</button>
-
-        <div class="links">
-            <a href="#">Forgot Password?</a>
-            <a routerLink="/signup">Create an Account</a>
-        </div>
-    </form>
-</div>
+      </div>
+    </div>
+  </div>
+  
