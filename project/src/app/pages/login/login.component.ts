@@ -32,3 +32,4 @@ export class LoginComponent {
     return emailPattern.test(email);
   }
 }
+
