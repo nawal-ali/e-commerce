@@ -1,1 +1,19 @@
-<p>fav works!</p>
+<div class="fav-container">
+    <h2>Your Favorite Products</h2>
+  
+    <div *ngIf="favItems.length === 0">You don't have any favorite items yet.</div>
+  
+    <div *ngFor="let item of favItems; let i = index" class="fav-item">
+      <img [src]="item.image" alt="{{ item.name }}" class="fav-item-image">
+      <div class="fav-item-details">
+        <h4>{{ item.name }}</h4>
+        <p>Price: ${{ item.price }}</p>
+        <button (click)="removeFromFav(i)" class="remove-btn">Remove</button>
+      </div>
+    </div>
+  
+    <div *ngIf="favItems.length > 0">
+      <button class="checkout-button">Proceed to Checkout</button>
+    </div>
+  </div>
+  
