@@ -35,7 +35,7 @@ export class BannerSliderComponent {
   }
   slideConfig = {
     "slidesToShow": 4,
-    "slidesToScroll": 2,
+    "slidesToScroll": 1,
     "autoplay":true,
     "autoplaySpeed":3000,
     "pauswOnHovere": true,
