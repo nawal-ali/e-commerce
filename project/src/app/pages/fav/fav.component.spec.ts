@@ -6,7 +6,7 @@ describe('FavComponent', () => {
   let component: FavComponent;
   let fixture: ComponentFixture<FavComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async () => { 
     await TestBed.configureTestingModule({
       declarations: [FavComponent]
     })
