@@ -6,25 +6,28 @@
             <p class="{{text_color}} my-4">{{bannerDetails.desc}}</p>
             <div class="d-flex my-4" *ngIf="showCounter&&dailySaleCountdown">
                 <div class="mx-2 ms-0">
-                    <p class="rounded-circle bg-light text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100 ">
+                    <p class="rounded text-light border text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100 ">
                         <span>{{days}}</span>
                     </p>
                     <p class="my-0 text-light text-center">days</p>
                 </div>
+                <span class="text-light pt-2">:</span>
                 <div class="mx-2">
-                    <p class="rounded-circle bg-light text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">
+                    <p class="rounded text-light border text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">
                         <span>{{hours}}</span>
                     </p>
                     <p class="my-0 text-light text-center">hours</p>
                 </div>
+                <span class="text-light pt-2">:</span>
                 <div class="mx-2">
-                    <p class="rounded-circle bg-light text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">
+                    <p class="rounded text-light border text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">
                         <span>{{minutes}}</span>
                     </p>
                     <p class="my-0 text-light text-center">minutes</p>
                 </div>
+                <span class="text-light pt-2">:</span>
                 <div class="mx-2 me-0">
-                    <p class="rounded-circle bg-light text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">
+                    <p class="rounded text-light border text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">
                         <span>{{seconds}}</span>
                     </p>
                     <p class="my-0 text-light text-center">seconds</p>
