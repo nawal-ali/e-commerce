@@ -10,33 +10,17 @@ import { BluetoothSpeakerComponent } from './pages/bluetooth-speaker/bluetooth-s
 import { AccessoriesComponent } from './pages/accessories/accessories.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { FavComponent } from './pages/fav/fav.component';
-<<<<<<< HEAD
 import { ProductCategoryComponent } from './shared/components/product-category/product-category.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  {path:"home/:productId", component:ProductDetailsComponent},
   { path: ':category', component: ProductCategoryComponent },
   { path: '**', redirectTo: '' },
   {path:"cart",component:CartComponent},
   {path:"favorite",component:FavComponent},
-=======
-import { ProductDetailsComponent } from './pages/product-details/product-details.component';
-
-const routes: Routes = [
-  {path:"", component:HomeComponent},
-  {path:"home/:productId", component:ProductDetailsComponent},
-  // {path:"speaker/:productId", component:ProductDetailsComponent},
-    // {path:"desktop", component:DesktopComponent},
-    // {path:"laptop",component:LaptopComponent},
-    // {path:"monitor",component:MonitorComponent},
-    // {path:"tv", component:TvComponent},
-    // {path:"gaming",component:GamingComponent},
-    // {path:"speaker", component:BluetoothSpeakerComponent},
-    // {path:"accessories", component:AccessoriesComponent},
-    {path:"cart",component:CartComponent},
-    {path:"favorite",component:FavComponent},
->>>>>>> creating-home-page
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
