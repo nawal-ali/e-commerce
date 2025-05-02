@@ -1,0 +1,48 @@
+.fav-container {
+    margin: 20px;
+  }
+  
+  .fav-item {
+    display: flex;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .fav-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  
+  .fav-item-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .fav-item h4 {
+    margin: 0;
+  }
+  
+  .remove-btn {
+    margin-top: 10px;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .checkout-button {
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

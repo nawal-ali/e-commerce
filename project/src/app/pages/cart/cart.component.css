@@ -1,0 +1,28 @@
+.card {
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  .card:hover {
+    transform: scale(1.02);
+  }
+  .img-fluid {
+    max-height: 150px;
+    object-fit: contain;
+  }
+  button {
+    min-width: 40px;
+  }
+  .cart-container {
+    display: block; 
+  }
+  
+  .cart-item {
+    margin-bottom: 15px;
+  }
+  
+  .checkout-button {
+    margin-top: 20px;
+  }
+  
+  
