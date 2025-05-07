@@ -21,6 +21,8 @@ import { FavComponent } from './pages/fav/fav.component';
 import { provideHttpClient } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { SignupComponent } from './pages/sign up/signup.component';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { FormsModule } from '@angular/forms';
     ProductCardComponent,
     BannerSliderComponent,
     FavComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
+    
   ],
   imports: [
     BrowserModule,

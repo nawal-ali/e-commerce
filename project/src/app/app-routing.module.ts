@@ -11,6 +11,7 @@ import { AccessoriesComponent } from './pages/accessories/accessories.component'
 import { CartComponent } from './pages/cart/cart.component';
 import { FavComponent } from './pages/fav/fav.component';
 import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/sign up/signup.component';
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
     {path:"cart",component:CartComponent},
     {path:"favorite",component:FavComponent},
     {path:"login",component:LoginComponent},
+    { path: 'signup', component: SignupComponent }
 ];
 
 @NgModule({
