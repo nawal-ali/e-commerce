@@ -22,6 +22,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './pages/sign up/signup.component';
+import { ForgetPasswordComponent } from './pages/forget password/forgetpassword';
 
 
 @NgModule({
@@ -43,8 +44,8 @@ import { SignupComponent } from './pages/sign up/signup.component';
     BannerSliderComponent,
     FavComponent,
     LoginComponent,
-    SignupComponent
-    
+    SignupComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,
