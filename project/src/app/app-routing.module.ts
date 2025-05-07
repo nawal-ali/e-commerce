@@ -11,16 +11,14 @@ import { AccessoriesComponent } from './pages/accessories/accessories.component'
 import { CartComponent } from './pages/cart/cart.component';
 import { FavComponent } from './pages/fav/fav.component';
 import { ProductCategoryComponent } from './shared/components/product-category/product-category.component';
-import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  {path:"home/:productId", component:ProductDetailsComponent},
   { path: ':category', component: ProductCategoryComponent },
   { path: '**', redirectTo: '' },
   {path:"cart",component:CartComponent},
   {path:"favorite",component:FavComponent},
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

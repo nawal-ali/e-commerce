@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DesktopComponent } from './pages/desktop/desktop.component';
@@ -19,11 +21,6 @@ import { BannerSliderComponent } from './shared/components/banner-slider/banner-
 import { FavComponent } from './pages/fav/fav.component';
 import { ProductCategoryComponent } from './shared/components/product-category/product-category.component';
 import { CommonModule } from '@angular/common';
-import { provideHttpClient } from '@angular/common/http';
-import { LargeBannerComponent } from './shared/components/large-banner/large-banner.component';
-import { SharedModule } from './shared/shared.module';
-// import { SlickCarouselModule } from 'ngx-slick-carousel';
-
 
 @NgModule({
   declarations: [
@@ -43,20 +40,14 @@ import { SharedModule } from './shared/shared.module';
     ProductCardComponent,
     BannerSliderComponent,
     FavComponent,
-    LargeBannerComponent,
-    BannerSliderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule,
-    SharedModule,
-    // HttpClientModule ,
-    // SlickCarouselModule
+    HttpClientModule ,
+    CommonModule
   ],
-  providers: [
-    provideHttpClient(),
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
