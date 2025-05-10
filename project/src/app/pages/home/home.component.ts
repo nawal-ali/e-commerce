@@ -23,13 +23,16 @@ export class HomeComponent {
     constructor(private product:ProductService){
 
       product.getProducts().subscribe(res=>{
-        this.products = res;
-        this.dailySaleProducts = res.filter((f: any) => f.dailySale === true);
-        this.monthSaleProducts = res.filter((f: any) => f.monthSale === true);
-        this.monthSale_laptopProducts = res.filter((f: any) => f.monthSale === true && f.category === "laptop"|| f.category === "desktop");
-        this.monthSale_gamingProducts = res.filter((f: any) => f.monthSale === true && f.category === "gaming");
-        this.monthSale_monitorProducts = res.filter((f: any) => f.monthSale === true && f.category === "monitor");
-        
+        if(res){
+        this.products = res.data;
+        console.log('res from home  ' +this.products );
+        this.dailySaleProducts = this.products.filter((f: any) => f.dailySale === true);
+        this.monthSaleProducts = this.products.filter((f: any) => f.monthSale === true);
+        this.monthSale_laptopProducts = this.products.filter((f: any) => f.monthSale === true && f.category === "Laptop"|| f.category === "Desktop");
+        this.monthSale_gamingProducts = this.products.filter((f: any) => f.monthSale === true && f.category === "Gaming");
+        this.monthSale_monitorProducts = this.products.filter((f: any) => f.monthSale === true && f.category === "Tv");
+      }
+      else{console.log('error from home ');}
       })
     }
 
