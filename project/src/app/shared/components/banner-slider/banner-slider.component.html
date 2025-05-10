@@ -77,7 +77,8 @@
                 <div class="col-6 d-flex align-items-center">
                     <div>
                         <h5>{{slide.name}}</h5>
-                        <p class="mt-3"><span *ngFor="let star of getStars(slide.rating)">⭐</span> {{slide.rating}}</p>
+                        <p class="mt-3"><span>⭐</span> {{slide.rating}}</p>
+                        <!-- *ngFor="let star of getStars(slide.rating)" -->
                         <div class="d-flex align-items-center">
                             <p class="mx-2 fs-4 align-self-center text-danger">
                                 {{priceAfterDiscount[slide.product_id]}}$</p>
@@ -121,7 +122,8 @@
                 style="width: 30%; " *ngIf="slide.availability==true">In Stock</div>
             <div class="p-4" style="height: fit-content">
                 <img src="{{ slide.image }}" class="m-auto" alt={{slide.name}} width="40%">
-                <p class="mt-3"><span *ngFor="let star of getStars(slide.rating)">⭐</span> {{slide.rating}}</p>
+                <p class="mt-3"><span>⭐</span> {{slide.rating}}</p>
+                <!-- *ngFor="let star of getStars(slide.rating)" -->
                 <h5>{{slide.name}}</h5>
                 <div class="d-flex align-items-center mb-0">
                     <p class="mx-2 fs-4 align-self-center text-danger mb-0">{{priceAfterDiscount[i]}}$</p>

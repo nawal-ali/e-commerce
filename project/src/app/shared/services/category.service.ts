@@ -33,7 +33,7 @@ export class CategoryService {
       {
         label: "Category",
         options: [
-         "Gaming Accessories", "Mobility", "Consoles" ,"Controllers"
+        "Gaming Accessories", "Mobility", "Consoles" ,"Controllers"
         ]
       },
       {
@@ -46,7 +46,7 @@ export class CategoryService {
       {
         label: "Brand",
         options: [
-         "Haier", "Jac", "LG", "Samsung", "Xiaomi", "Sharp", "Syinix", "Armadillo"
+        "Haier", "Jac", "LG", "Samsung", "Xiaomi", "Sharp", "Syinix", "Armadillo"
         ]
       },      
       {

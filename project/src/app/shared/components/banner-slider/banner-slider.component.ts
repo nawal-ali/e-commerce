@@ -22,8 +22,8 @@ export class BannerSliderComponent {
   x!:number;
   constructor(private product:ProductService){
     this.product.getProducts().subscribe(res=>{
-      console.log("this is res"+res);
-      this.products = res;
+      console.log("this is res from banner slider"+res);
+      this.products = res.data;
       this.products.map(item =>{
         if(item.discount>0){
         this.x = item.price - ((item.discount / 100) * item.price);
@@ -142,7 +142,7 @@ export class BannerSliderComponent {
     console.log('breakpoint');
   }
 
-  getStars(x:number): number[]{
-    return Array((Math.floor(x))).fill(0);
-  }
+  // getStars(x:number): number[]{
+  //   return Array((Math.floor(x))).fill(0);
+  // }
 }
