@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: '**', redirectTo: '' },
   {path:"cart",component:CartComponent},
   {path:"favorite",component:FavComponent},
+  { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
 ]
 
 @NgModule({
