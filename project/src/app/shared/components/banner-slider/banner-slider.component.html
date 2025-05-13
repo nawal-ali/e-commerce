@@ -124,16 +124,6 @@
                 <p class="mb-0"><small class="text-body-secondary">{{slide.description}}</small></p>
                 <button class="btn bg-dark text-light w-100 my-3" routerLink="product/{{slide._id}}">Show
                     Product</button>
-                <!-- <div class="d-flex w-100 mb-3">
-                            <button class="btn align-self-start bg-dark text-light w-25 rounded"
-                                (click)="removeItem()">-</button>
-                            <p
-                                class="border border-1 rounded ps-2 pe-2 flex-fill text-center mx-2 mb-0 item-number fs-4">
-                                {{numOfItems}}
-                            </p>
-                            <button class=" btn align-self-start bg-dark text-light w-25 rounded"
-                                (click)="addItem()">+</button>
-                        </div> -->
                 <button (click)="addToCart(slide._id)" class="btn bg-dark text-light w-25 rounded w-100 py-2"
                     tabindex="-1">Add to cart</button>
             </div>
