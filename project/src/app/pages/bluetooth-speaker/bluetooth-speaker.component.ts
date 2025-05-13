@@ -10,7 +10,7 @@ import { ProductService } from '../../shared/services/product.service';
 export class BluetoothSpeakerComponent {
     speaker:any;
             constructor(public productService:ProductService){
-              this.productService.getMonitorCategory().subscribe(res=>{
+              this.productService.getSpeakerCategory().subscribe(res=>{
                 this.speaker = res.data;
               })
             }
