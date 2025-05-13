@@ -98,7 +98,8 @@
                             <button class=" btn align-self-start bg-dark text-light w-25 rounded"
                                 (click)="addItem()">+</button>
                         </div> -->
-                        <button class="btn bg-dark text-light w-25 rounded w-100 py-2" tabindex="-1">Add to
+                        <button (click)="addToCart(slide._id)" class="btn bg-dark text-light w-25 rounded w-100 py-2"
+                            tabindex="-1">Add to
                             cart</button>
                     </div>
                 </div>
@@ -143,7 +144,8 @@
                             <button class=" btn align-self-start bg-dark text-light w-25 rounded"
                                 (click)="addItem()">+</button>
                         </div> -->
-                <button class="btn bg-dark text-light w-25 rounded w-100 py-2" tabindex="-1">Add to cart</button>
+                <button (click)="addToCart(slide.product_id)" class="btn bg-dark text-light w-25 rounded w-100 py-2"
+                    tabindex="-1">Add to cart</button>
             </div>
         </div>
     </ngx-slick-carousel>

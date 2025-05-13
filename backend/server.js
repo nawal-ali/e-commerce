@@ -3,14 +3,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
-//, { useNewUrlParser: true }
 mongoose.connect(process.env.DATABASE_URL)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
-
-// const db = mongoose.connection;
-// db.on('error', (error) => { console.error(error); })
-// db.once('open', () => { console.log("connected to db"); })
 
 app.use(express.json());
 

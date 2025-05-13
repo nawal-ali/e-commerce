@@ -1,5 +1,6 @@
 import { Component,Input } from '@angular/core';
 import { ProductService } from '../../services/product.service';
+import { CartService } from '../../services/cart.service';
 // import { SlickCarouselModule } from 'ngx-slick-carousel';
 // import { CommonModule } from '@angular/common';
 // import { RouterModule } from '@angular/router';
@@ -20,7 +21,7 @@ export class BannerSliderComponent {
   priceAfterDiscount:{[key:number]: number}={};
   products:any[] = [];
   x!:number;
-  constructor(private product:ProductService){
+  constructor(private product:ProductService,public cartService:CartService){
     this.product.getProducts().subscribe(res=>{
       console.log("this is res from banner slider"+res);
       this.products = res.data;
@@ -33,6 +34,18 @@ export class BannerSliderComponent {
       console.log("this is price"+this.priceAfterDiscount);
     })
   }
+
+addToCart(productId1: any) {
+  const userId1 = '681e12177c4dff4989d42c20'; // normally get this from auth/localStorage
+  const cartBody = {
+    userId:userId1,
+    productId:productId1,
+    quantity: 1
+  };
+  this.cartService.addToCart(cartBody).subscribe(() => {
+    console.log('Added to cart!');
+  });
+}
   slideConfig = {
     "slidesToShow": 4,
     "slidesToScroll": 1,

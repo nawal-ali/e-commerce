@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../../shared/services/product.service';
+import { CartService } from '../../shared/services/cart.service';
 
 @Component({
   selector: 'app-laptop',
@@ -10,9 +11,9 @@ import { ProductService } from '../../shared/services/product.service';
 export class LaptopComponent {
   laptops:any = [];
 
-  constructor(public productService:ProductService){
+  constructor(public productService:ProductService, public cartService:CartService){
     this.productService.getLaptopCategory().subscribe(res=>{
       this.laptops = res.data
     })
-  }
+  } 
 }

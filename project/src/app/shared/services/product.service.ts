@@ -6,50 +6,50 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3000/products';
   private selectedCategory = new BehaviorSubject<string>('');
 
   constructor(private http: HttpClient) {}
   
   //get all products
   getProducts(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/products/all`); 
+    return this.http.get<any>(`${this.apiUrl}/all`); 
   }
 
   
   //get laptop products 
   getLaptopCategory():Observable<any>{
-    return this.http.get(`${this.apiUrl}/products/laptop`)
+    return this.http.get(`${this.apiUrl}/laptop`)
   }
 
   //get dasktop products
   getDesktopCategory():Observable<any>{
-    return this.http.get(`${this.apiUrl}/products/desktop`)
+    return this.http.get(`${this.apiUrl}/desktop`)
   }
 
   //get monitor products
   getMonitorCategory():Observable<any>{
-    return this.http.get(`${this.apiUrl}/products/monitor`)
+    return this.http.get(`${this.apiUrl}/monitor`)
   }
 
   //get tv products
   getTvCategory():Observable<any>{
-    return this.http.get(`${this.apiUrl}/products/tv`)
+    return this.http.get(`${this.apiUrl}/tv`)
   }
 
   //get gaming products
   getGamingCategory():Observable<any>{
-    return this.http.get(`${this.apiUrl}/products/gaming`)
+    return this.http.get(`${this.apiUrl}/gaming`)
   }
 
   //get accessories products
   getAccessoriesCategory():Observable<any>{
-    return this.http.get(`${this.apiUrl}/products/accessories`)
+    return this.http.get(`${this.apiUrl}/accessories`)
   }
 
   //get bluetooth-speaker products
   getSpeakerCategory():Observable<any>{
-    return this.http.get(`${this.apiUrl}/products/bluetooth-speaker`)
+    return this.http.get(`${this.apiUrl}/bluetooth-speaker`)
   }
 
   setSelectedCategory(category: string): void {
@@ -62,6 +62,6 @@ export class ProductService {
 
   // get single product
   getSingleProduct(id: any): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/products/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 }

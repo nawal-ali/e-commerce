@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from '../../shared/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,11 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-  cartItems: { name: string; price: number; quantity: number; image: string }[] = [
-    { name: 'Product 1', price: 29.99, quantity: 1, image: 'https://via.placeholder.com/150' },
-    { name: 'Product 2', price: 49.99, quantity: 2, image: 'https://via.placeholder.com/150' },
-    { name: 'Product 3', price: 19.99, quantity: 1, image: 'https://via.placeholder.com/150' }
-  ];
+
+  cartItems: any[] = [];
+  id = "681e12177c4dff4989d42c20"
+  constructor(public cartService:CartService){
+    this.cartService.getCart(this.id).subscribe(res => {
+      this.cartItems = res.items
+    })
+  }
+
+
+  // cartItems: { name: string; price: number; quantity: number; image: string }[] = [
+  //   { name: 'Product 1', price: 29.99, quantity: 1, image: 'https://via.placeholder.com/150' },
+  //   { name: 'Product 2', price: 49.99, quantity: 2, image: 'https://via.placeholder.com/150' },
+  //   { name: 'Product 3', price: 19.99, quantity: 1, image: 'https://via.placeholder.com/150' }
+  // ];
 
   increaseQuantity(index: number): void {
     this.cartItems[index].quantity++;
@@ -27,8 +38,8 @@ export class CartComponent {
     this.cartItems.splice(index, 1);
   }
 
-  getTotalPrice(): number {
-    return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  }
+  // getTotalPrice(): number {
+  //   return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  // }
 }
 
