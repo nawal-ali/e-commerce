@@ -1,1 +1,20 @@
-<p>accessories works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-4" *ngFor="let a of acc">
+            <div class="card p-3">
+                <img src={{a.imageUrl}} alt="" class="card-img-top">
+                <div class="card-body">
+                    <h3 class="card-title">{{a.name}}</h3>
+                    <div *ngIf="a.price>0">
+                        <span class="card-text me-3 text-decoration-line-through">{{a.price}}$</span>
+                        <span class="card-text fw-bold text-danger fs-4">{{a.price-(a.discount/100)}}$</span>
+                    </div>
+                    <div *ngIf="a.price == 0">
+                        <span class="card-text me-3 fw-bold">{{a.price}}$</span>
+                    </div>
+                    <p class="card-text">{{a.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

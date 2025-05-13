@@ -10,9 +10,10 @@ interface Product {
   selector: 'app-fav',
   standalone: false,
   templateUrl: './fav.component.html',
-  styleUrl: './fav.component.css'
+  styleUrls: ['./fav.component.css']
 })
 export class FavComponent {
+<<<<<<< HEAD
   favoriteItems: Product[] = [
     { id: 1, name: 'Product 1', price: 29.99, quantity: 1, image: 'path_to_image1' },
     { id: 2, name: 'Product 2', price: 31.9, quantity: 1, image: 'path_to_image1' },
@@ -38,5 +39,23 @@ export class FavComponent {
   
   getTotalPrice(): number {
     return this.favoriteItems.reduce((total, item) => total + item.price * item.quantity, 0);
+=======
+  
+  favItems: { name: string; price: number; image: string }[] = [
+    { name: 'Product 1', price: 29.99, image: 'https://via.placeholder.com/150' },
+    { name: 'Product 2', price: 49.99, image: 'https://via.placeholder.com/150' },
+    { name: 'Product 3', price: 19.99, image: 'https://via.placeholder.com/150' }
+  ];
+
+
+  removeFromFav(index: number): void {
+    this.favItems.splice(index, 1);
+  }
+
+
+  addToFav(item: { name: string; price: number; image: string }): void {
+    this.favItems.push(item);
+>>>>>>> 9f70ecabe41b040f5a6686380635f489059eb7da
   }
 }
+

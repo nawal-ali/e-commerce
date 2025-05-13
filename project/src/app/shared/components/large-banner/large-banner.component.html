@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="{{bg_color}} row rounded p-2 p-sm-5 my-5 mb-3">
+        <div class="col-12 col-lg-6">
+            <a class="link-success link-underline link-underline-opacity-0 fs-4">{{bannerDetails.category}}</a>
+            <h1 class="{{text_color}} fs-1 mt-5 mb-0">{{bannerDetails.title}}</h1>
+            <p class="{{text_color}} my-4">{{bannerDetails.desc}}</p>
+            <div class="d-flex my-4" *ngIf="showCounter&&dailySaleCountdown">
+                <div class="mx-2 ms-0">
+                    <p class="rounded text-light border text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100 ">
+                        <span>{{days}}</span>
+                    </p>
+                    <p class="my-0 text-light text-center">days</p>
+                </div>
+                <span class="text-light pt-2">:</span>
+                <div class="mx-2">
+                    <p class="rounded text-light border text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">
+                        <span>{{hours}}</span>
+                    </p>
+                    <p class="my-0 text-light text-center">hours</p>
+                </div>
+                <span class="text-light pt-2">:</span>
+                <div class="mx-2">
+                    <p class="rounded text-light border text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">
+                        <span>{{minutes}}</span>
+                    </p>
+                    <p class="my-0 text-light text-center">minutes</p>
+                </div>
+                <span class="text-light pt-2">:</span>
+                <div class="mx-2 me-0">
+                    <p class="rounded text-light border text-center p-2  mx-2 ms-0 fs-5 fs-md-4 w-100">
+                        <span>{{seconds}}</span>
+                    </p>
+                    <p class="my-0 text-light text-center">seconds</p>
+                </div>
+            </div>
+            <button class="btn btn-success fs-5 my-3" [routerLink]="product_link">{{bannerDetails.button}}</button>
+        </div>
+        <div class="position-relative mt-4 col-12 col-lg-6 text-center">
+            <div class="w-100 h-100 position-absolute top-50 start-50 translate-middle" style="background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    filter:blur(60px);">.</div>
+            <img src={{bannerDetails.img}} alt="" class="w-75 mt-4">
+        </div>
+    </div>
+</div>

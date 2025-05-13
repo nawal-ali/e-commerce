@@ -1,1 +1,20 @@
-<p>monitor works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-4" *ngFor="let m of monitor">
+            <div class="card p-3">
+                <img src={{m.imageUrl}} alt="" class="card-img-top">
+                <div class="card-body">
+                    <h3 class="card-title">{{m.name}}</h3>
+                    <div *ngIf="m.price>0">
+                        <span class="card-text me-3 text-decoration-line-through">{{m.price}}$</span>
+                        <span class="card-text fw-bold text-danger fs-4">{{m.price-(m.discount/100)}}$</span>
+                    </div>
+                    <div *ngIf="m.price == 0">
+                        <span class="card-text me-3 fw-bold">{{m.price}}$</span>
+                    </div>
+                    <p class="card-text">{{m.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

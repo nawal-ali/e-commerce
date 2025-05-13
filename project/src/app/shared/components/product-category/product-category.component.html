@@ -1,0 +1,61 @@
+<div class="container">
+  <!-- Sidebar Filter -->
+  <div class="sidebar">
+    <div class="filter-item">
+      <div class="filter-header" (click)="toggleFilter('Price')">
+        Price
+        <svg class="arrow" [class.open]="openStates['Price']" width="16" height="16" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg>
+      </div>
+      <div class="filter-dropdown" *ngIf="openStates['Price']">
+        <div class="dual-slider">
+          <input type="range" min="0" max="75900" [value]="minPrice" (input)="onMinPriceChange($event)"
+            class="slider" />
+          <input type="range" min="0" max="75900" [value]="maxPrice" (input)="onMaxPriceChange($event)"
+            class="slider" />
+        </div>
+        <div class="price-values">
+          <span>${{ minPrice }}</span>
+          <span>${{ maxPrice }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other Filters -->
+    <div *ngFor="let group of activeCategoryGroups" class="filter-item">
+      <div class="filter-header" (click)="toggleFilter(group.label)">
+        {{ group.label }}
+        <svg class="arrow" [class.open]="openStates[group.label]" width="16" height="16" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg>
+      </div>
+      <div class="filter-dropdown" *ngIf="openStates[group.label]">
+        <label *ngFor="let option of group.options">
+          <input type="checkbox" [value]="option.toLowerCase().trim()"
+            (change)="onOptionChange(group.label, option, $event)" />
+          {{ option }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <div class="image-wrapper">
+        <img [src]="product.img" alt="product" />
+      </div>
+      <div class="product-info">
+        <div class="top-line">
+          <div class="brand">{{ product.brand }}</div>
+          <div class="rating">★★★★★</div>
+        </div>
+        <hr />
+        <h4 class="product-name">{{ product.name }}</h4>
+        <span class="price">${{ product.price }}</span>
+        <button class="add-to-cart">Add To Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
