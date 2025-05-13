@@ -10,7 +10,7 @@ import { ProductService } from '../../shared/services/product.service';
 export class AccessoriesComponent {
     acc:any;
           constructor(public productService:ProductService){
-            this.productService.getMonitorCategory().subscribe(res=>{
+            this.productService.getAccessoriesCategory().subscribe(res=>{
               this.acc = res.data;
             })
           }
