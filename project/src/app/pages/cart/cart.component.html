@@ -12,15 +12,18 @@
             <h5 class="card-title">{{ item.product.name }}</h5>
             <p class="card-text text-muted">price per unit: {{ item.product.price}}$</p>
             <div class="d-flex align-items-center">
-              <button class="btn btn-outline-secondary me-2" (click)="decreaseQuantity(i)">-</button>
+              <!-- decreaseQuantity(i) -->
+              <button class="btn btn-outline-secondary me-2"
+                (click)="updateQuantity(item.product._id, item.quantity - 1)" [disabled]="item.quantity <= 1">-</button>
               <span class="fw-bold text-warning">Quantity: {{ item.quantity }}</span>
-              <button class="btn btn-outline-secondary ms-2" (click)="increaseQuantity(i)">+</button>
+              <button class="btn btn-outline-secondary ms-2"
+                (click)="updateQuantity(item.product._id, item.quantity + 1)">+</button>
             </div>
             <p class="card-text text-success fw-bold">total price: {{ item.product.price*item.quantity}}$</p>
           </div>
         </div>
         <div class="col-md-3 text-center">
-          <button class="btn btn-danger" (click)="removeItem(i)">Remove</button>
+          <button class="btn btn-danger" (click)="removeItem(item.product._id)">Remove</button>
         </div>
       </div>
     </div>

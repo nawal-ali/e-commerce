@@ -136,7 +136,6 @@ router.get('/:id', async (req, res) => {
     } else {
         res.status(404).json({ message: 'Product not found' })
     }
-    // if (!product) return res.status(404).json({ message: 'Product not found' })
 })
 
 //create a product
@@ -167,12 +166,10 @@ router.post('/add', async (req, res) => {
 //update a product
 router.patch('/:id', async (req, res) => {
     try {
-        const product = await Products.findById(req.params.id); // ✅ use param and await
-
+        const product = await Products.findById(req.params.id);
         if (!product) {
             return res.status(404).json({ message: 'Product not found' });
         }
-
         // Update only fields that are provided
         if (req.body.name !== undefined) product.name = req.body.name;
         if (req.body.price !== undefined) product.price = req.body.price;
@@ -185,10 +182,8 @@ router.patch('/:id', async (req, res) => {
         if (req.body.availability !== undefined) product.availability = req.body.availability;
         if (req.body.dailySale !== undefined) product.dailySale = req.body.dailySale;
         if (req.body.monthSale !== undefined) product.monthSale = req.body.monthSale;
-
         const updatedProduct = await product.save();
         res.json(updatedProduct);
-
     } catch (err) {
         res.status(400).json({ message: err.message });
     }

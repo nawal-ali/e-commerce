@@ -34,9 +34,22 @@ export class CartComponent {
     }
   }
 
-  removeItem(index: number): void {
-    this.cartItems.splice(index, 1);
-  }
+  // removeItem(index: number): void {
+  //   this.cartItems.splice(index, 1);
+  // }
+
+  updateQuantity(productId: string, quantity: number) {
+  this.cartService.updateItem(this.id, productId, quantity).subscribe(updatedCart => {
+    this.cartItems = updatedCart.items;
+  });
+}
+
+removeItem(productId: string) {
+  this.cartService.removeItem(this.id, productId).subscribe(updatedCart => {
+    this.cartItems = updatedCart.items;
+  });
+}
+
 
   // getTotalPrice(): number {
   //   return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
