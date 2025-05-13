@@ -28,9 +28,9 @@ export class HomeComponent {
         console.log('res from home  ' +this.products );
         this.dailySaleProducts = this.products.filter((f: any) => f.dailySale === true);
         this.monthSaleProducts = this.products.filter((f: any) => f.monthSale === true);
-        this.monthSale_laptopProducts = this.products.filter((f: any) => f.monthSale === true && f.category === "Laptop"|| f.category === "Desktop");
-        this.monthSale_gamingProducts = this.products.filter((f: any) => f.monthSale === true && f.category === "Gaming");
-        this.monthSale_monitorProducts = this.products.filter((f: any) => f.monthSale === true && f.category === "Tv");
+        this.monthSale_laptopProducts = this.products.filter((f: any) => f.monthSale === true && f.category === "laptop"|| f.category === "Desktop");
+        this.monthSale_gamingProducts = this.products.filter((f: any) => f.monthSale === true && f.category === "gaming");
+        this.monthSale_monitorProducts = this.products.filter((f: any) => f.monthSale === true && f.category === "gv");
       }
       else{console.log('error from home ');}
       })
