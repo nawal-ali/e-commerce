@@ -8,7 +8,7 @@ import { UserService } from '../../../shared/services/user.service';
   styleUrl: './user-data.component.css'
 })
 export class UserDataComponent {
-   id = '681e12177c4dff4989d42c20';
+  id = '681e12177c4dff4989d42c20';
   firstName:any;
   lastName:any;
   email:any;
