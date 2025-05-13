@@ -38,9 +38,9 @@ export class HomeComponent {
 
 slider1=[
   {img:'./imgs/gameing.png',body:'gaming',routerlink:'/gaming'},
-  {img:'./imgs/tv.png' ,body:'tv' ,routerlink:'/tv'},
+  {img:'./imgs/tv.png' ,body:'tv' ,routerlink:'/tvs'},
   {img:'./imgs/laptop.png',body:'laptop',routerlink:'/laptop'},
-  {img:'./imgs/speaker.png',body:'blutooth-speaker' ,routerlink:'/speaker'},
+  {img:'./imgs/speaker.png',body:'blutooth-speaker' ,routerlink:'/bluetoothSpeaker'},
   {img:'./imgs/monitors.png',body:'monitors' ,routerlink:'/monitor'},
 ]
 
