@@ -1,11 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const { User, validateCreateUser } = require('../models/userM.js')
-// const bcrypt = require('bcryptjs')
 
-// const salt = await bcrypt.genSalt(10);
-// const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
+// to get all users registered
 router.get('/allusers', async (req, res) => {
     try {
         const allUsers = await User.find()
@@ -15,6 +13,8 @@ router.get('/allusers', async (req, res) => {
     }
 })
 
+
+//to register 
 router.post('/', async (req, res) => {
     const { error } = validateCreateUser(req.body)
     if (error) {
