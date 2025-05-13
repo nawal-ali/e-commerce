@@ -1,24 +1,25 @@
-<div class="container mt-5" *ngFor="let single of single">
+<div class="container mt-5" *ngIf="product">
+    <!--  *ngFor="let single of product" -->
     <div class="row">
         <div class="col-12 col-md-8">
             <div class="row p-4 border border-1 rounded position-relative " style="width: 100%">
                 <img src="./imgs/saleLogo2.png" alt="" class="position-absolute top-0 start-100 translate-middle"
-                    style="width: 15%;" *ngIf="single.discount>0">
+                    style="width: 15%;" *ngIf="product.discount>0">
                 <div class="col-12 col-md-6">
-                    <img src={{single?.imageUrl}} class=" card-img-top" alt="...">
+                    <img src={{product?.imageUrl}} class=" card-img-top" alt="...">
                 </div>
                 <div class="col-12 col-md-6 d-flex align-items-center">
                     <div class="card-body">
-                        <h2 class="card-title mb-5 text-dark">{{single?.name}}</h2>
-                        <p><span *ngFor="let r of rate" class="me-1">⭐</span>{{single.rating}}</p>
-                        <div *ngIf="single.discount>0" class="d-flex align-items-center gap-3 mb-3">
+                        <h2 class="card-title mb-5 text-dark">{{product.name}}</h2>
+                        <p><span *ngFor="let r of rate" class="me-1">⭐</span>{{product.rating}}</p>
+                        <div *ngIf="product.discount>0" class="d-flex align-items-center gap-3 mb-3">
                             <p class="card-text text-danger fs-2">
-                                {{priceAfterDiscount}}$</p>
+                                {{product.price-(product.discount/100)}}$</p>
                             <p class="card-text text-secondary text-decoration-line-through align-self-start fs-5">
-                                {{single?.price}}</p>
+                                {{product.price}}</p>
                         </div>
-                        <p class="card-text text-dark fs-3" *ngIf="single.discount == 0">{{single?.price}}</p>
-                        <p class="card-text mb-5 text-secondary">{{single?.description}}</p>
+                        <p class="card-text text-dark fs-3" *ngIf="product.discount == 0">{{product.price}}</p>
+                        <p class="card-text mb-5 text-secondary">{{product.description}}</p>
                         <button class="btn bg-dark text-light rounded w-75 py-2 ms-4 fs-5">Add to cart</button>
                     </div>
                 </div>
@@ -39,16 +40,16 @@
                     </tr> -->
                     <tr>
                         <th scope="row">availability</th>
-                        <td *ngIf="single.availability==true">In Stock</td>
-                        <td *ngIf="single.availability==false">Out Of Stock</td>
+                        <td *ngIf="product.availability==true">In Stock</td>
+                        <td *ngIf="product.availability==false">Out Of Stock</td>
                     </tr>
                     <tr>
                         <th scope="row">brand</th>
-                        <td colspan="2">{{single.brand}}</td>
+                        <td colspan="2">{{product.brand}}</td>
                     </tr>
                     <tr>
                         <th scope="row">category</th>
-                        <td colspan="2">{{single.category}}</td>
+                        <td colspan="2">{{product.category}}</td>
                     </tr>
                 </tbody>
             </table>

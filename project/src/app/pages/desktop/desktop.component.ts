@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductService } from '../../shared/services/product.service';
 
 @Component({
   selector: 'app-desktop',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './desktop.component.css'
 })
 export class DesktopComponent {
-
+  desktop:any;
+  constructor(public productService:ProductService){
+    this.productService.getDesktopCategory().subscribe(res=>{
+      this.desktop = res.data;
+    })
+  }
 }

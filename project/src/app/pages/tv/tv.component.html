@@ -1,1 +1,20 @@
-<p>tv works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-4" *ngFor="let t of tv">
+            <div class="card p-3">
+                <img src={{t.imageUrl}} alt="" class="card-img-top">
+                <div class="card-body">
+                    <h3 class="card-title">{{t.name}}</h3>
+                    <div *ngIf="t.price>0">
+                        <span class="card-text me-3 text-decoration-line-through">{{t.price}}$</span>
+                        <span class="card-text fw-bold text-danger fs-4">{{t.price-(t.discount/100)}}$</span>
+                    </div>
+                    <div *ngIf="t.price == 0">
+                        <span class="card-text me-3 fw-bold">{{t.price}}$</span>
+                    </div>
+                    <p class="card-text">{{t.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

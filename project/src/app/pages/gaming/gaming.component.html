@@ -1,1 +1,20 @@
-<p>gaming works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-4" *ngFor="let g of gaming">
+            <div class="card p-3">
+                <img src={{g.imageUrl}} alt="" class="card-img-top">
+                <div class="card-body">
+                    <h3 class="card-title">{{g.name}}</h3>
+                    <div *ngIf="g.price>0">
+                        <span class="card-text me-3 text-decoration-line-through">{{g.price}}$</span>
+                        <span class="card-text fw-bold text-danger fs-4">{{g.price-(g.discount/100)}}$</span>
+                    </div>
+                    <div *ngIf="g.price == 0">
+                        <span class="card-text me-3 fw-bold">{{g.price}}$</span>
+                    </div>
+                    <p class="card-text">{{g.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

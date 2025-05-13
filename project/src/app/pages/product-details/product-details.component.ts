@@ -11,35 +11,19 @@ import { tick } from '@angular/core/testing';
 })
 export class ProductDetailsComponent {
   constructor(private activated: ActivatedRoute,private productService: ProductService){}
-  single:any[] = [];
-  priceAfterDiscount:number = 0;
+  // single:any[] = [];
   rate :any[] = [];
-  // clientRate :any[] = [];
-  // clientRate2 :any[] = [];
-  // reviews :any[]=[];
+  product: any;
   ngOnInit(){
-    const id = this.activated.snapshot.paramMap.get('_id');
-    console.log("this is id from single "+ id);
-    this.productService.getSingleProduct(id).subscribe(res => {
-      this.rate = Array(Math.floor(res.rating)).fill(0);
-      console.log('this is rating' + this.rate);
-      // this.reviews = res.reviews;
-      // this.reviews.map(i =>{
-      //   this.clientRate = Array(i.rating).fill(0);
-      //   this.clientRate2.push(this.clientRate);
-      //   console.log(this.clientRate2);
-      // })
-      // console.log('this is revies'+this.reviews);
-      // this.single.push(res);
-      // console.log('this is res from single' + this.single);
-      // console.log(typeof(res));
-      this.single.map((item:any) => {
-        this.priceAfterDiscount = Math.floor(item.price -((item.discount/100)*item.price));
-        console.log(this.priceAfterDiscount);
-      })
-      
-      // console.log(res);
-    })
+    const id =  this.activated.snapshot.paramMap.get('id');
+    if(id){
+      this.productService.getSingleProduct(id).subscribe(res => {
+        this.product = res.data;
+        console.log('Product:', this.product);
+        //reting array
+        this.rate = Array(Math.floor(this.product.rating)).fill(0);
+      });
+    }
+    // console.log("this is id from single "+ id);
   }
-
 }
