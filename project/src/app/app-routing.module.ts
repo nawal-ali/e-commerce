@@ -10,16 +10,23 @@ import { BluetoothSpeakerComponent } from './pages/bluetooth-speaker/bluetooth-s
 import { AccessoriesComponent } from './pages/accessories/accessories.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { FavComponent } from './pages/fav/fav.component';
-import { ProductCategoryComponent } from './shared/components/product-category/product-category.component';
+// import { ProductCategoryComponent } from './shared/components/product-category/product-category.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  {path:"home/:productId", component:ProductDetailsComponent},
-  { path: ':category', component: ProductCategoryComponent },
-  { path: '**', redirectTo: '' },
+  {path:"product/:id", component:ProductDetailsComponent},
+  // { path: ':category', component: ProductCategoryComponent },
+  // { path: '**', redirectTo: '' },
   {path:"cart",component:CartComponent},
   {path:"favorite",component:FavComponent},
+  {path:"desktop",component:DesktopComponent},
+  {path:"monitor",component:MonitorComponent},
+  {path:"laptop",component:LaptopComponent},
+  {path:"tvs",component:TvComponent},
+  {path:"gaming",component:GamingComponent},
+  {path:"bluetoothSpeaker",component:BluetoothSpeakerComponent},
+  {path:"accessories",component:AccessoriesComponent},
   { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
 ]
 
