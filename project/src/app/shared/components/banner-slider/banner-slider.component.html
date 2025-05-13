@@ -59,7 +59,7 @@
 
 
 
-
+    <!------------------------------------ carosel for daily sales ----------------------------------------->
 
     <!-- (breakpoint)="breakpoint($event)" (init)="slickInit($event)"-->
     <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig2" *ngIf="dailySales">
@@ -101,7 +101,7 @@
 
 
 
-
+    <!------------------------------------ carosel for month sales ----------------------------------------->
     <!-- (breakpoint)="breakpoint($event)" (init)="slickInit($event)"-->
     <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig3" *ngIf="monthSales">
         <div ngxSlickItem class="slide mx-3 card p-0 position-relative " *ngFor="let slide of slides; let i = index">
