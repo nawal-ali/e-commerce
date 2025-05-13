@@ -134,7 +134,7 @@ router.get('/:id', async (req, res) => {
     if (product) {
         res.json({ action: 'success', data: product })
     } else {
-        res.status(404).json({ message: 'Product not found' })
+        res.json({ message: 'Product not found' })
     }
 })
 
@@ -157,9 +157,9 @@ router.post('/add', async (req, res) => {
     })
     try {
         const newProduct = await product.save()
-        res.status(201).json(newProduct)
+        res.json(newProduct)
     } catch (err) {
-        res.status(400).json({ message: err.message })
+        res.json({ message: err.message })
     }
 })
 
