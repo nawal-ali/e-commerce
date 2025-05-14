@@ -39,7 +39,7 @@ export class LargeBannerComponent {
   }
 
   // for the countdown
-  targetDate:any = new Date("March 30, 2025 23:59:59").getTime();
+  targetDate:any = new Date("July 1, 2025 23:59:59").getTime();
   dailySaleCountdown = true;
   days:number = 0;
   hours:number = 0;
