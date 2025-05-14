@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../shared/services/product.service';
 import { tick } from '@angular/core/testing';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { CartService } from '../../shared/services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,7 +12,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent {
-  constructor(private activated: ActivatedRoute,private productService: ProductService,private spinner: NgxSpinnerService){}
+  constructor(private activated: ActivatedRoute,private productService: ProductService,private spinner: NgxSpinnerService,public cartService:CartService){}
   // rate :any[] = [];
   // product: any;
   // ngOnInit(){
@@ -27,6 +28,18 @@ export class ProductDetailsComponent {
   // }
   rate: any[] = [];
   product: any;
+
+  addToCart(productId1: any) {
+  const userId1 = '681e12177c4dff4989d42c20'; // normally get this from auth/localStorage
+  const cartBody = {
+    userId:userId1,
+    productId:productId1,
+    quantity: 1
+  };
+  this.cartService.addToCart(cartBody).subscribe(() => {
+    console.log('Added to cart!');
+  });
+}
 
   ngOnInit() {
     this.spinner.show();

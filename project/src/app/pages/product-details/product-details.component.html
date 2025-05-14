@@ -20,7 +20,8 @@
                         </div>
                         <p class="card-text text-dark fs-3" *ngIf="product.discount == 0">{{product.price}}$</p>
                         <p class="card-text mb-5 text-secondary">{{product.description}}</p>
-                        <button class="btn bg-dark text-light rounded w-75 py-2 ms-4 fs-5">Add to cart</button>
+                        <button class="btn bg-dark text-light rounded w-75 py-2 ms-4 fs-5"
+                            (click)="addToCart(product._id)">Add to cart</button>
                     </div>
                 </div>
             </div>
