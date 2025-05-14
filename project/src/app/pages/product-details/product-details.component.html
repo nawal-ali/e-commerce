@@ -14,7 +14,7 @@
                         <p><span *ngFor="let r of rate" class="me-1">⭐</span>{{product.rating}}</p>
                         <div *ngIf="product.discount>0" class="d-flex align-items-center gap-3 mb-3">
                             <p class="card-text text-danger fs-2">
-                                {{product.price-(product.discount/100)}}$</p>
+                                {{product.price-(product.price*(product.discount/100))}}$</p>
                             <p class="card-text text-secondary text-decoration-line-through align-self-start fs-5">
                                 {{product.price}}</p>
                         </div>
