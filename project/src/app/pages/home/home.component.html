@@ -1,6 +1,7 @@
 <app-large-banner [bannerTitle]="'Enhance Your Music Experience'" [bannerImg]="'./imgs/Union.png'"
-    [bannerButton]="'Buy Now!'" [bannerCategory]="'Blutooth-speaker'" [routerLink]="'/home/' + products[23]?.product_id"
-    [showCounter]="true" [bg_color]="'bg-dark'" [text_color]="'text-light'" />
+    [bannerButton]="'Buy Now!'" [bannerCategory]="'Blutooth-speaker'" *ngIf="products?.length > 1"
+    [routerLink]="['/product', products[8]?._id]" [showCounter]="true" [bg_color]="'bg-dark'"
+    [text_color]="'text-light'" />
 
 <p class="text-center fs-1 my-5">Popular Categories</p>
 <app-banner-slider [slides]="slider1" [category]="true" />
@@ -10,8 +11,8 @@
 <app-banner-slider [slides]="dailySaleProducts" [dailySales]="true" />
 <app-large-banner [bannerTitle]="'Macbook Pro'" [bannerImg]="'./imgs/mcbook.png'"
     [bannerDesc]="'Apple M1 Max Chip. 32GB Unified Memory, 1TB SSD Storage'" [bannerButton]="'Order Now!'"
-    [bannerCategory]="'laptop'" [routerLink]="'/home/' + products[20]?.product_id" [bg_color]="'bg-secondary-subtle'"
-    [text_color]="'text-dark'" />
+    [bannerCategory]="'laptop'" *ngIf="products?.length > 1" [routerLink]="['/product', products[0]?._id]"
+    [bg_color]="'bg-secondary-subtle'" [text_color]="'text-dark'" />
 
 
 <div class="d-flex flex-column flex-lg-row justify-content-between mb-5 gap-3">
@@ -22,8 +23,8 @@
             <div class="w-75 m-auto text-center">
                 <h3>PlayStation 5</h3>
                 <p>Black and White version of the PS5 coming out on sale.</p>
-                <a class="link-opacity-75-hover link-underline-light link-light"
-                    [routerLink]="'/home/' + products[22]?.product_id">Shop Now!</a>
+                <a class="link-opacity-75-hover link-underline-light link-light" *ngIf="products?.length > 1"
+                    [routerLink]="['/product', products[9]?._id]">Shop Now!</a>
             </div>
         </div>
     </div>
@@ -34,8 +35,8 @@
             <div class="w-75 m-auto text-center">
                 <h3>Xbox 360</h3>
                 <p>Black and White version of the xbox coming out on sale.</p>
-                <a class="link-opacity-75-hover link-underline-light link-light"
-                    [routerLink]="'/home/' + products[21]?.product_id">Shop Now!</a>
+                <a class="link-opacity-75-hover link-underline-light link-light" *ngIf="products?.length > 1"
+                    [routerLink]="['/product', products[10]?._id]">Shop Now!</a>
             </div>
         </div>
     </div>
@@ -84,27 +85,24 @@
             <div>
                 <app-large-banner [bannerTitle]="'Macbook Pro'" [bannerImg]="'./imgs/mcbook.png'"
                     [bannerDesc]="'Apple M1 Max Chip. 32GB Unified Memory, 1TB SSD Storage'"
-                    [bannerButton]="'Order Now!'" [bannerCategory]="'laptop'"
-                    [routerLink]="'/home/' + products[20]?.product_id" [bg_color]="'bg-dark'"
-                    [text_color]="'text-light'" />
+                    [bannerButton]="'Order Now!'" [bannerCategory]="'laptop'" *ngIf="products?.length > 1"
+                    [routerLink]="['/product', products[0]._id]" [bg_color]="'bg-dark'" [text_color]="'text-light'" />
             </div>
         </div>
         <div class="carousel-item p-5">
             <div>
                 <app-large-banner [bannerTitle]="'Macbook Pro'" [bannerImg]="'./imgs/mcbook.png'"
                     [bannerDesc]="'Apple M1 Max Chip. 32GB Unified Memory, 1TB SSD Storage'"
-                    [bannerButton]="'Order Now!'" [bannerCategory]="'laptop'"
-                    [routerLink]="'/home/' + products[20]?.product_id" [bg_color]="'bg-dark'"
-                    [text_color]="'text-light'" />
+                    [bannerButton]="'Order Now!'" [bannerCategory]="'laptop'" *ngIf="products?.length > 1"
+                    [routerLink]="['/product', products[0]._id]" [bg_color]="'bg-dark'" [text_color]="'text-light'" />
             </div>
         </div>
         <div class="carousel-item p-5">
             <div>
                 <app-large-banner [bannerTitle]="'Macbook Pro'" [bannerImg]="'./imgs/mcbook.png'"
                     [bannerDesc]="'Apple M1 Max Chip. 32GB Unified Memory, 1TB SSD Storage'"
-                    [bannerButton]="'Order Now!'" [bannerCategory]="'laptop'"
-                    [routerLink]="'/home/' + products[20]?.product_id" [bg_color]="'bg-dark'"
-                    [text_color]="'text-light'" />
+                    [bannerButton]="'Order Now!'" [bannerCategory]="'laptop'" *ngIf="products?.length > 1"
+                    [routerLink]="['/product', products[0]._id]" [bg_color]="'bg-dark'" [text_color]="'text-light'" />
             </div>
         </div>
     </div>

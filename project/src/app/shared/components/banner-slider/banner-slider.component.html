@@ -81,7 +81,7 @@
                         <!-- *ngFor="let star of getStars(slide.rating)" -->
                         <div class="d-flex align-items-center">
                             <p class="mx-2 fs-4 align-self-center text-danger">
-                                {{slide.price-(slide.discount/100)}}$</p>
+                                {{slide.price-(slide.price*(slide.discount/100))}}$</p>
                             <p class=" text-decoration-line-through align-self-center text-secondary">{{slide.price}}$
                             </p>
                         </div>
@@ -117,7 +117,8 @@
                 <!-- *ngFor="let star of getStars(slide.rating)" -->
                 <h5>{{slide.name}}</h5>
                 <div class="d-flex align-items-center mb-0">
-                    <p class="mx-2 fs-4 align-self-center text-danger mb-0">{{slide.price-(slide.discount/100)}}$</p>
+                    <p class="mx-2 fs-4 align-self-center text-danger mb-0">
+                        {{slide.price-(slide.price*(slide.discount/100))}}$</p>
                     <p class=" text-decoration-line-through align-self-center text-secondary mb-0">{{slide.price}}$
                     </p>
                 </div>
