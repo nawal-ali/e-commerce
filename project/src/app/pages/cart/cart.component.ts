@@ -13,7 +13,13 @@ export class CartComponent {
   id = "681e12177c4dff4989d42c20"
   constructor(public cartService:CartService){
     this.cartService.getCart(this.id).subscribe(res => {
-      this.cartItems = res.items
+    if (res && res.items) {
+    this.cartItems = res.items;
+    this.cartService.cartlength = this.cartItems.length;
+  } else {
+    this.cartItems = [];
+    this.cartService.cartlength = 0;
+  }
     })
   }
 

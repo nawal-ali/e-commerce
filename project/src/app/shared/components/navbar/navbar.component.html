@@ -10,9 +10,9 @@
             routerLinkActive="bg-light text-dark" style="cursor: pointer;"></i>
         <i class="fa-solid fa-cart-shopping fs-5 text-light border rounded p-2 mx-2 align-self-start position-relative"
             routerLink="/cart" routerLinkActive="bg-light text-dark" style="cursor: pointer;">
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                3
-                <span class="visually-hidden">unread messages</span>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                *ngIf="cartService.cartlength>0">
+                {{cartService.cartlength}}
             </span>
         </i>
         <i class="fa-solid fa-user fs-5 text-light border rounded p-2 mx-2 align-self-start"></i>
