@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from '../../shared/services/cart.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +12,8 @@ export class CartComponent {
 
   cartItems: any[] = [];
   id = "681e12177c4dff4989d42c20"
-  constructor(public cartService:CartService){
+  constructor(public cartService:CartService,private spinner: NgxSpinnerService){
+    this.spinner.show();
     this.cartService.getCart(this.id).subscribe(res => {
     if (res && res.items) {
     this.cartItems = res.items;
@@ -20,7 +22,7 @@ export class CartComponent {
     this.cartItems = [];
     this.cartService.cartlength = 0;
   }
-    })
+    },()=>{},()=>{this.spinner.hide();})
   }
 
 

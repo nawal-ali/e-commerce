@@ -8,9 +8,37 @@ router.get('/all', async (req, res) => {
         const allProducts = await Products.find()
         res.json({ action: 'success', count: allProducts.length, data: allProducts })
     } catch (err) {
-        res.status(500).json({ message: err.message })
+        res.json({ message: err.message })
     }
 })
+
+//search in products
+// router.get('/saerch', async (req, res) => {
+//     try {
+//         const { name } = req.query
+//         let search = {}
+//         search.$or = [
+//             { name: { $regex: name, $options: 'i' } }
+//         ]
+//         const pro = await Products.find(search)
+//         res.json({ action: 'success', count: pro.length, data: pro })
+//     } catch (err) {
+//         res.json({ message: 'product not found' })
+//     }
+// })
+// Backend - Corrected Search Route
+router.get('/search', async (req, res) => {
+    try {
+        const { name } = req.query;
+        const products = await Products.find({
+            name: { $regex: name, $options: 'i' } // case-insensitive partial match
+        });
+        res.json({ action: 'success', count: products.length, data: products });
+    } catch (err) {
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
 
 //------------------------- getting categories ----------------
 router.get('/', async (req, res) => {
@@ -25,14 +53,13 @@ router.get('/', async (req, res) => {
         const pro = await Products.find(search);
         res.json({ action: 'success', count: pro.length, data: pro });
     } catch (err) {
-        res.status(500).json({ message: 'Product not found', error: err.message });
+        res.json({ message: 'Product not found', error: err.message });
     }
 });
 
 
 router.get('/desktop', async (req, res) => {
     try {
-        const { price } = req.query
         let search = {}
         search.$or = [
             { category: 'desktop' }
@@ -46,7 +73,6 @@ router.get('/desktop', async (req, res) => {
 
 router.get('/laptop', async (req, res) => {
     try {
-        const { price } = req.query
         let search = {}
         search.$or = [
             { category: 'laptop' }
@@ -60,7 +86,6 @@ router.get('/laptop', async (req, res) => {
 
 router.get('/monitor', async (req, res) => {
     try {
-        const { price } = req.query
         let search = {}
         search.$or = [
             { category: 'monitor' }
@@ -74,7 +99,6 @@ router.get('/monitor', async (req, res) => {
 
 router.get('/tv', async (req, res) => {
     try {
-        const { price } = req.query
         let search = {}
         search.$or = [
             { category: 'tv' }
@@ -88,7 +112,6 @@ router.get('/tv', async (req, res) => {
 
 router.get('/gaming', async (req, res) => {
     try {
-        const { price } = req.query
         let search = {}
         search.$or = [
             { category: 'gaming' }
@@ -102,7 +125,6 @@ router.get('/gaming', async (req, res) => {
 
 router.get('/accessories', async (req, res) => {
     try {
-        const { price } = req.query
         let search = {}
         search.$or = [
             { category: 'accessories' }
@@ -116,7 +138,6 @@ router.get('/accessories', async (req, res) => {
 
 router.get('/bluetooth-speaker', async (req, res) => {
     try {
-        const { price } = req.query
         let search = {}
         search.$or = [
             { category: 'bluetooth-speaker' }

@@ -22,6 +22,9 @@ import { CommonModule } from '@angular/common';
 import { provideHttpClient } from '@angular/common/http';
 import { LargeBannerComponent } from './shared/components/large-banner/large-banner.component';
 import { SharedModule } from './shared/shared.module';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from 'ngx-spinner';
 // import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
@@ -51,6 +54,9 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     CommonModule,
     SharedModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
     // HttpClientModule ,
     // SlickCarouselModule
   ],

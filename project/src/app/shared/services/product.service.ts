@@ -64,4 +64,9 @@ export class ProductService {
   getSingleProduct(id: any): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
+
+  //search function
+  searchProducts(name: string) {
+    return this.http.get<any>(`${this.apiUrl}/search?name=${name}`);
+  }
 }

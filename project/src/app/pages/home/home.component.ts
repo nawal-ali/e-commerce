@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ProductService } from '../../shared/services/product.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -20,9 +21,9 @@ export class HomeComponent {
   monthSale_gamingProducts:any =[];
   monthSale_monitorProducts:any =[];
 
-    constructor(private product:ProductService){
-
-      product.getProducts().subscribe(res=>{
+    constructor(private product:ProductService ,private spinner: NgxSpinnerService){
+    this.spinner.show();
+      this.product.getProducts().subscribe(res=>{
         if(res){
         this.products = res.data;
         console.log('res from home  ' +this.products );
@@ -33,8 +34,16 @@ export class HomeComponent {
         this.monthSale_monitorProducts = this.products.filter((f: any) => f.monthSale === true && f.category === "gv");
       }
       else{console.log('error from home ');}
-      })
+      },()=>{},()=>{this.spinner.hide();})
     }
+
+
+  //     ngOnInit() {
+  //   this.spinner.show();
+  //   setTimeout(() => {
+  //     this.spinner.hide();
+  //   }, 5000);
+  // }
 
 slider1=[
   {img:'./imgs/gameing.png',body:'gaming',routerlink:'/gaming'},

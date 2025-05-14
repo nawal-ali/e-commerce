@@ -48,8 +48,19 @@
                         routerLinkActive="rounded bg-dark text-light">Accessories </a>
                 </div>
                 <form class="d-flex ms-auto" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                    <input class="form-control me-2 position-relative" type="search" [(ngModel)]="searchQuery"
+                        name="search" (input)="onSearch()" placeholder="Search products" aria-label="Search">
+                    <!-- <button class="btn btn-outline-dark" type="submit">Search</button> -->
+                    <div *ngIf="searchResults.length" class="position-absolute top-100 bg-body-tertiary p-3"
+                        style="z-index: 3;">
+                        <div *ngFor="let product of searchResults" class="my-3">
+                            <hr>
+                            <a [routerLink]="['/product', product._id]" class="text-decoration-none text-dark"
+                                style="cursor: pointer;">
+                                {{ product.name }}
+                            </a>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
