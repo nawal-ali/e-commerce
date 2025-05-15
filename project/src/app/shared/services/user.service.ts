@@ -32,4 +32,8 @@ export class UserService {
   getUserPrevOrders(id:any):Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/prevOrder/${id}`)
   }
+
+  createOrder(order: any) {
+  return this.http.post(`${this.apiUrl}/prevOrder`, order); // Adjust base URL as needed
+}
 }
