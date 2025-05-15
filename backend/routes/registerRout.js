@@ -9,9 +9,23 @@ router.get('/allusers', async (req, res) => {
         const allUsers = await User.find()
         res.json({ action: 'success', count: allUsers.length, data: allUsers })
     } catch (err) {
-        res.status(500).json({ message: err.message })
+        res.json({ message: err.message })
     }
 })
+
+// router.get('/:id', async (req, res) => {
+//     try {
+//         const user = await User.findById(req.params.id).select('-password');
+//         res.json({
+//             id: user._id,
+//             firstName: user.firstName,
+//             lastName: user.lastName,
+//             email: user.email
+//         });
+//     } catch (err) {
+//         res.json({ message: err.message })
+//     }
+// })
 
 
 //to register 
@@ -32,9 +46,9 @@ router.post('/', async (req, res) => {
     })
     try {
         const newUser = await user.save()
-        res.status(201).json(newUser)
+        res.json(newUser)
     } catch (err) {
-        res.status(400).json({ message: err.message })
+        res.json({ message: err.message })
     }
 })
 module.exports = router;

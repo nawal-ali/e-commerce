@@ -50,7 +50,7 @@ export class LargeBannerComponent {
     // console.log("this is now"+now);
     // console.log("thid is target "+ this.targetDate);
     const diff:any = this.targetDate - now;
-    console.log("this is diff"+diff);
+    // console.log("this is diff"+diff);
     this.days = Math.floor(diff/(1000 * 60 * 60 * 24));
     // console.log(this.days);
     this.hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

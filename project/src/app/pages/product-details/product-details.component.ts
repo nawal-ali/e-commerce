@@ -30,7 +30,7 @@ export class ProductDetailsComponent {
   product: any;
 
   addToCart(productId1: any) {
-  const userId1 = '681e12177c4dff4989d42c20'; // normally get this from auth/localStorage
+  const userId1 = localStorage.getItem('id'); // normally get this from auth/localStorage
   const cartBody = {
     userId:userId1,
     productId:productId1,

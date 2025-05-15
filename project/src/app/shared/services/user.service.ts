@@ -7,13 +7,23 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
+  isLoged = false;
+  logeduserId:any;
+
   private apiUrl = 'http://localhost:3000';
   constructor(private http: HttpClient) { }
 
+  // to get one user data
   getUserData(id:any):Observable<any>{
-    return this.http.get<any>(`${this.apiUrl}/register/${id}`)
+    return this.http.get<any>(`${this.apiUrl}/user/${id}`)
   }
 
+  //to register
+  login(body:any):Observable<any>{
+    return this.http.post(`${this.apiUrl}/login`,body)
+  }
+
+  //to show previuos orders for a user
   getUserPrevOrders(id:any):Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/prevOrder/${id}`)
   }

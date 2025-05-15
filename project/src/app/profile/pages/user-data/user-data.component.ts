@@ -8,19 +8,20 @@ import { UserService } from '../../../shared/services/user.service';
   styleUrl: './user-data.component.css'
 })
 export class UserDataComponent {
-  id = '681e12177c4dff4989d42c20';
-  firstName:any;
-  lastName:any;
-  email:any;
+  id:any;
   constructor(public userService:UserService){
+    this.id = localStorage.getItem('id');
     this.userService.getUserData(this.id).subscribe(res =>{
       if(res){
-      this.firstName = res.data.firstName;
-      this.lastName = res.data.lastName;
-      this.email = res.data.email;
-      }
+      this.firstName = res.firstName;
+      this.lastName = res.lastName;
+      this.email = res.email;
+    }
       else console.log('error while fetchin user data');
     }
     )
   }
+  firstName:any;
+  lastName:any;
+  email:any;
 }

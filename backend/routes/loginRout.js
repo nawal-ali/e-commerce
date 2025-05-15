@@ -1,5 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const { User } = require('../models/userM.js')
@@ -9,19 +10,19 @@ router.post('/', async (req, res) => {
 
     // 1. Check if user exists
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ message: 'Invalid email or password' });
+    if (!user) return res.json({ message: 'Invalid email or password' });
 
     // 2. Compare password
     const validPassword = await bcrypt.compare(password, user.password);
-    if (!validPassword) return res.status(400).json({ message: 'Invalid password' });
+    if (!validPassword) return res.json({ message: 'Invalid password' });
 
     // 3. If using JWT (optional): generate and send token
     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
     // For now: return success + basic user info
     res.json({
         message: 'Login successful',
-        token,
         user: {
+            token,
             id: user._id,
             email: user.email,
             firstName: user.firstName,
@@ -29,5 +30,6 @@ router.post('/', async (req, res) => {
         }
     });
 });
+
 
 module.exports = router;

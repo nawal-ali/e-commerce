@@ -1,6 +1,7 @@
 import { Component,Input } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
+import { WishlistService } from '../../services/wishlist.service';
 // import { SlickCarouselModule } from 'ngx-slick-carousel';
 // import { CommonModule } from '@angular/common';
 // import { RouterModule } from '@angular/router';
@@ -21,7 +22,7 @@ export class BannerSliderComponent {
   priceAfterDiscount:{[key:number]: number}={};
   products:any[] = [];
   x!:number;
-  constructor(private product:ProductService,public cartService:CartService){
+  constructor(private product:ProductService,public cartService:CartService, private favoriteService:WishlistService ){
     this.product.getProducts().subscribe(res=>{
       console.log("this is res from banner slider"+res);
       this.products = res.data;
@@ -35,8 +36,9 @@ export class BannerSliderComponent {
     })
   }
 
+  //cart logic
 addToCart(productId1: any) {
-  const userId1 = '681e12177c4dff4989d42c20'; // normally get this from auth/localStorage
+  const userId1 = localStorage.getItem('id'); // normally get this from auth/localStorage
   const cartBody = {
     userId:userId1,
     productId:productId1,
@@ -46,6 +48,27 @@ addToCart(productId1: any) {
     console.log('Added to cart!');
   });
 }
+
+//fav logic
+favoriteIds: string[] = [];
+userId = localStorage.getItem('id')
+isFavorite(productId: string): boolean {
+  return this.favoriteIds.includes(productId);
+}
+
+toggleFavorite(productId: string) {
+  if (this.isFavorite(productId)) {
+    this.favoriteService.removeFromFavorites(this.userId, productId).subscribe(() => {
+      this.favoriteIds = this.favoriteIds.filter(id => id !== productId);
+    });
+  } else {
+    this.favoriteService.addToFavorites(this.userId, productId).subscribe(() => {
+      this.favoriteIds.push(productId);
+    });
+  }
+}
+
+
   slideConfig = {
     "slidesToShow": 4,
     "slidesToScroll": 1,

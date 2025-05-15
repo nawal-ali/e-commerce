@@ -21,11 +21,11 @@ export class CartService {
   }
 
 
-  updateItem(userId: string, productId: string, quantity: number): Observable<any> {
+  updateItem(userId: any, productId: any, quantity: number): Observable<any> {
   return this.http.put<any>(`${this.apiUrl}/${userId}/item/${productId}`, { quantity });
 }
 
-removeItem(userId: string, productId: string): Observable<any> {
+removeItem(userId: any, productId: any): Observable<any> {
   return this.http.delete<any>(`${this.apiUrl}/${userId}/item/${productId}`);
 }
 

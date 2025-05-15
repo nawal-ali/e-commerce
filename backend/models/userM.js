@@ -111,6 +111,6 @@ function validateCreateUser(obj) {
     return schema.validate(obj);
 }
 
-const User = mongoose.model('User', UserSchema); // ✅ capitalized 'User' is conventional
+const User = mongoose.model('User', UserSchema);
 
 module.exports = { User, validateCreateUser };

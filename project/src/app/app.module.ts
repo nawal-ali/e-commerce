@@ -25,6 +25,8 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoginComponent } from './pages/login/login.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
 // import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
@@ -47,7 +49,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BannerSliderComponent,
     FavComponent,
     LargeBannerComponent,
-    BannerSliderComponent
+    BannerSliderComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

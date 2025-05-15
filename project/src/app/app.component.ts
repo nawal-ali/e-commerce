@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './shared/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project';
+  constructor(private UserService:UserService){}
+  ngOnInit(){
+    let token = localStorage.getItem('token')
+    if(token) this.UserService.isLoged = true
+  }
 }

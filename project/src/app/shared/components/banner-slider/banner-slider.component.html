@@ -125,8 +125,19 @@
                 <p class="mb-0"><small class="text-body-secondary">{{slide.description}}</small></p>
                 <button class="btn bg-dark text-light w-100 my-3" routerLink="product/{{slide._id}}">Show
                     Product</button>
-                <button (click)="addToCart(slide._id)" class="btn bg-dark text-light w-25 rounded w-100 py-2"
-                    tabindex="-1">Add to cart</button>
+                <div class="row g-0">
+                    <div class="col-10">
+                        <button (click)="addToCart(slide._id)" class="btn bg-dark text-light w-25 rounded w-100 py-2"
+                            tabindex="-1">Add to cart</button>
+                    </div>
+                    <div class="col-2 text-center">
+                        <button class="btn text-center" (click)="toggleFavorite(slide._id)">
+                            <i class="fa-regular fa-heart m-auto text-center"
+                                [ngClass]="{ 'fa-regular': !isFavorite(slide._id), 'fa-solid': isFavorite(slide._id) }"></i>
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </ngx-slick-carousel>

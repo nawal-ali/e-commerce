@@ -3,8 +3,8 @@
         <i class="fa-solid fa-shop fs-1 text-dark" routerLink="/" style="cursor: pointer;"></i>
         <p>Star shop</p>
     </div>
-    <div class="col-12 col-sm-6 d-flex align-items-top justify-content-end bg-dark pt-4 pe-5"
-        style=" clip-path: polygon(0 0%, 15% 100%, 100% 100%, 100% 0, 0 0);">
+    <!-- style=" clip-path: polygon(0 0%, 15% 100%, 100% 100%, 100% 0, 0 0);" -->
+    <div class="cliped-obj col-12 col-sm-6 d-flex align-items-top justify-content-center bg-dark pt-4 pe-5">
         <p class="fs-5 text-light mx-2">hotline: +20 111 222 333 </p>
         <i class="fa-regular fa-heart fs-5 text-light border rounded p-2 mx-2 align-self-start" routerLink="/favorite"
             routerLinkActive="bg-light text-dark" style="cursor: pointer;"></i>
@@ -15,7 +15,20 @@
                 {{cartService.cartlength}}
             </span>
         </i>
-        <i class="fa-solid fa-user fs-5 text-light border rounded p-2 mx-2 align-self-start"></i>
+        <i class="fa-solid fa-user fs-5 text-light border rounded p-2 mx-2 align-self-start" routerLink="/login"
+            style="cursor: pointer;" *ngIf="userService.isLoged ==false"></i>
+        <i class="fa-solid fa-user-plus fs-5 text-light border rounded p-2 mx-2 align-self-start" routerLink="/sign-up"
+            style="cursor: pointer;" *ngIf="userService.isLoged ==false"></i>
+        <div *ngIf="userService.isLoged" class="text-light dropdown">
+            <h4 class="nav-link dropdown-toggle mx-3" data-bs-toggle="dropdown" role="button" aria-expanded="false"
+                style="font-size: 1.5rem;">
+                wellcome <span class="text-warning">{{userFirstName}}</span>
+            </h4>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" routerLink="/profile">My profile</a></li>
+                <li><a class="dropdown-item text-danger" (click)="handleLogOut()">Log out</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 

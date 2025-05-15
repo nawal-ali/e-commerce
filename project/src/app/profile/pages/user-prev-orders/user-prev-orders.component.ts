@@ -8,9 +8,10 @@ import { UserService } from '../../../shared/services/user.service';
   styleUrl: './user-prev-orders.component.css'
 })
 export class UserPrevOrdersComponent {
-  id = '681e12177c4dff4989d42c20';
+  id :any;
   orders :any;
   constructor(public userServic: UserService){
+    this.id = localStorage.getItem('id');
     this.userServic.getUserPrevOrders(this.id).subscribe(res => {
       if(res){
         this.orders = res
