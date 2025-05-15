@@ -23,9 +23,29 @@ export class FavComponent {
   // ];
 
 
+  // removeFromFav(index: number): void {
+  //   this.favItems.splice(index, 1);
+  // }
+
   removeFromFav(index: number): void {
-    this.favItems.splice(index, 1);
+  const item = this.favItems[index];
+  const userId = this.id;
+
+  if (!userId || !item?.productId?._id) {
+    console.error('Missing userId or productId');
+    return;
   }
+
+  this.fav.removeFromFavorites(userId, item.productId._id).subscribe(
+    () => {
+      this.favItems.splice(index, 1);
+    },
+    (error) => {
+      console.error('Failed to remove from favorites:', error);
+    }
+  );
+}
+
 
 
   addToFav(item: { name: string; price: number; image: string }): void {

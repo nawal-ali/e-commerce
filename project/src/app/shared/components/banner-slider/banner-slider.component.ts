@@ -87,6 +87,7 @@ toggleFavorite(productId: string) {
   } else {
     this.favoriteService.addToFavorites(this.userId, productId).subscribe(() => {
       this.favoriteIds.push(productId);
+      this.showAlert('Added to Favorites!', 'success');
     });
   }
 }
