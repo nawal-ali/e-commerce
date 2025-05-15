@@ -2,6 +2,7 @@ import { Component,Input } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
 import { WishlistService } from '../../services/wishlist.service';
+import { UserService } from '../../services/user.service';
 // import { SlickCarouselModule } from 'ngx-slick-carousel';
 // import { CommonModule } from '@angular/common';
 // import { RouterModule } from '@angular/router';
@@ -22,7 +23,7 @@ export class BannerSliderComponent {
   priceAfterDiscount:{[key:number]: number}={};
   products:any[] = [];
   x!:number;
-  constructor(private product:ProductService,public cartService:CartService, private favoriteService:WishlistService ){
+  constructor(private product:ProductService,public cartService:CartService, private favoriteService:WishlistService, private userService: UserService ){
     this.product.getProducts().subscribe(res=>{
       console.log("this is res from banner slider"+res);
       this.products = res.data;
@@ -38,6 +39,11 @@ export class BannerSliderComponent {
 
   //cart logic
 addToCart(productId1: any) {
+  if(!this.userService.isLoged){
+    this.showAlert('Login or Sign up to start shopping!', 'danger');
+    return;
+  }else{
+
   const userId1 = localStorage.getItem('id'); // normally get this from auth/localStorage
   const cartBody = {
     userId:userId1,
@@ -46,8 +52,25 @@ addToCart(productId1: any) {
   };
   this.cartService.addToCart(cartBody).subscribe(() => {
     console.log('Added to cart!');
+    this.showAlert('Added to cart!', 'success');
   });
+  }
 }
+
+showAlert(message: string, type: 'success' | 'danger' | 'warning') {
+    const alert = document.createElement('div');
+    alert.className = `alert alert-${type} position-fixed top-0 start-50 translate-middle-x mt-3 shadow`;
+    alert.style.zIndex = '9999';
+    alert.style.minWidth = '300px';
+    alert.innerHTML = `
+      <strong>${message}</strong>
+    `;
+    document.body.appendChild(alert);
+
+    setTimeout(() => {
+      alert.remove();
+    }, 3000);
+  }
 
 //fav logic
 favoriteIds: string[] = [];

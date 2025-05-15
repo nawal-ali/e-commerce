@@ -18,7 +18,12 @@ export class UserService {
     return this.http.get<any>(`${this.apiUrl}/user/${id}`)
   }
 
-  //to register
+  //to sign-up
+  signUp(body:any):Observable<any>{
+    return this.http.post(`${this.apiUrl}/register`,body)
+  }
+
+  //to login
   login(body:any):Observable<any>{
     return this.http.post(`${this.apiUrl}/login`,body)
   }

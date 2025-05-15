@@ -1,25 +1,25 @@
-<div class="row text-center w-100 m-0">
+<div class="row text-center w-100 m-0" style="background-color: rgba(34, 117, 39, 0.532);">
     <div class="col-12 col-sm-6 pt-4">
         <i class="fa-solid fa-shop fs-1 text-dark" routerLink="/" style="cursor: pointer;"></i>
         <p>Star shop</p>
     </div>
     <!-- style=" clip-path: polygon(0 0%, 15% 100%, 100% 100%, 100% 0, 0 0);" -->
-    <div class="cliped-obj col-12 col-sm-6 d-flex align-items-top justify-content-center bg-dark pt-4 pe-5">
-        <p class="fs-5 text-light mx-2">hotline: +20 111 222 333 </p>
-        <i class="fa-regular fa-heart fs-5 text-light border rounded p-2 mx-2 align-self-start" routerLink="/favorite"
-            routerLinkActive="bg-light text-dark" style="cursor: pointer;"></i>
-        <i class="fa-solid fa-cart-shopping fs-5 text-light border rounded p-2 mx-2 align-self-start position-relative"
+    <div class="cliped-obj col-12 col-sm-6 d-flex align-items-top justify-content-center pt-4 pe-5">
+        <p class="fs-5 text-dark mx-2">hotline: +20 111 222 333 </p>
+        <i class="fa-regular fa-heart fs-5 text-dark border border-dark rounded p-2 mx-2 align-self-start"
+            routerLink="/favorite" routerLinkActive="bg-light text-dark" style="cursor: pointer;"></i>
+        <i class="fa-solid fa-cart-shopping fs-5 text-dark border border-dark rounded p-2 mx-2 align-self-start position-relative"
             routerLink="/cart" routerLinkActive="bg-light text-dark" style="cursor: pointer;">
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                 *ngIf="cartService.cartlength>0">
                 {{cartService.cartlength}}
             </span>
         </i>
-        <i class="fa-solid fa-user fs-5 text-light border rounded p-2 mx-2 align-self-start" routerLink="/login"
-            style="cursor: pointer;" *ngIf="userService.isLoged ==false"></i>
-        <i class="fa-solid fa-user-plus fs-5 text-light border rounded p-2 mx-2 align-self-start" routerLink="/sign-up"
-            style="cursor: pointer;" *ngIf="userService.isLoged ==false"></i>
-        <div *ngIf="userService.isLoged" class="text-light dropdown">
+        <i class="fa-solid fa-user fs-5 text-dark border border-dark rounded p-2 mx-2 align-self-start"
+            routerLink="/login" style="cursor: pointer;" *ngIf="userService.isLoged ==false"></i>
+        <i class="fa-solid fa-user-plus fs-5 text-dark border border-dark rounded p-2 mx-2 align-self-start"
+            routerLink="/sign-up" style="cursor: pointer;" *ngIf="userService.isLoged ==false"></i>
+        <div *ngIf="userService.isLoged" class="text-dark dropdown">
             <h4 class="nav-link dropdown-toggle mx-3" data-bs-toggle="dropdown" role="button" aria-expanded="false"
                 style="font-size: 1.5rem;">
                 wellcome <span class="text-warning">{{userFirstName}}</span>

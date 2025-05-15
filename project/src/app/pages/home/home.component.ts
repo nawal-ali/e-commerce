@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductService } from '../../shared/services/product.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 

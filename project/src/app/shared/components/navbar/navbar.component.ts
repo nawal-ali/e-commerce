@@ -27,7 +27,24 @@ handleLogOut(){
   localStorage.removeItem('token')
   localStorage.removeItem('id')
   this.router.navigateByUrl('/')
+  this.showAlert('Loged out successful! hope to see you soon ', 'warning');
 }
+
+showAlert(message: string, type: 'success' | 'danger' | 'warning') {
+    const alert = document.createElement('div');
+    alert.className = `alert alert-${type} position-fixed top-0 start-50 translate-middle-x mt-3 shadow`;
+    alert.style.zIndex = '9999';
+    alert.style.minWidth = '300px';
+    alert.innerHTML = `
+      <strong>${message}</strong>
+    `;
+    document.body.appendChild(alert);
+
+    setTimeout(() => {
+      alert.remove();
+    }, 3000);
+  }
+
   onSearch() {
   if (this.searchQuery.trim().length > 0) {
     this.productService.searchProducts(this.searchQuery).subscribe(res => {
