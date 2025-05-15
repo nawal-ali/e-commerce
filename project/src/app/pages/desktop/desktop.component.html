@@ -5,14 +5,16 @@
                 <img src={{desk.imageUrl}} alt="" class="card-img-top" style="width: 200px;">
                 <div class="card-body">
                     <h3 class="card-title">{{desk.name}}</h3>
-                    <div *ngIf="desk.price>0">
+                    <div *ngIf="desk.discount>0">
                         <span class="card-text me-3 text-decoration-line-through">{{desk.price}}$</span>
                         <span class="card-text fw-bold text-danger fs-4">{{desk.price-(desk.discount/100)}}$</span>
                     </div>
-                    <div *ngIf="desk.price == 0">
+                    <div *ngIf="desk.discount== 0">
                         <span class="card-text me-3 fw-bold">{{desk.price}}$</span>
                     </div>
                     <p class="card-text">{{desk.description}}</p>
+                    <button class="btn bg-dark text-light rounded w-75 py-2 ms-4 fs-5" (click)="addToCart(desk._id)">Add
+                        to cart</button>
                 </div>
             </div>
         </div>

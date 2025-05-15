@@ -5,14 +5,16 @@
                 <img src={{lap.imageUrl}} alt="" class="card-img-top">
                 <div class="card-body">
                     <h3 class="card-title">{{lap.name}}</h3>
-                    <div *ngIf="lap.price>0">
+                    <div *ngIf="lap.discount>0">
                         <span class="card-text me-3 text-decoration-line-through">{{lap.price}}$</span>
                         <span class="card-text fw-bold text-danger fs-4">{{lap.price-(lap.discount/100)}}$</span>
                     </div>
-                    <div *ngIf="lap.price == 0">
+                    <div *ngIf="lap.discount== 0">
                         <span class="card-text me-3 fw-bold">{{lap.price}}$</span>
                     </div>
                     <p class="card-text">{{lap.description}}</p>
+                    <button class="btn bg-dark text-light rounded w-75 py-2 ms-4 fs-5" (click)="addToCart(lap._id)">Add
+                        to cart</button>
                 </div>
             </div>
         </div>

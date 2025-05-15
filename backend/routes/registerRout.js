@@ -29,7 +29,7 @@ router.get('/allusers', async (req, res) => {
 
 
 //to register 
-router.post('/', async (req, res) => {
+router.post('/sign-up', async (req, res) => {
     const { error } = validateCreateUser(req.body)
     if (error) {
         res.json({ message: error.details[0].message })
@@ -45,10 +45,20 @@ router.post('/', async (req, res) => {
         password: req.body.password,
     })
     try {
-        const newUser = await user.save()
-        res.json(newUser)
+        const newUser = await user.save();
+        // Do NOT send password back to client
+        const { _id, firstName, lastName, email } = newUser;
+        res.json({
+            user: { _id, firstName, lastName, email }
+        });
     } catch (err) {
-        res.json({ message: err.message })
+        res.json({ message: err.message });
+        // try {
+        //     const newUser = await user.save()
+        //     res.json(newUser)
+        // } catch (err) {
+        //     res.json({ message: err.message })
+        // }
     }
 })
 module.exports = router;

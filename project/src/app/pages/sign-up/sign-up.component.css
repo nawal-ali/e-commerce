@@ -2,7 +2,7 @@
 
 /* Image side styling */
 .bg-signup-image {
-    background-image: url('https://via.placeholder.com/600x600'); /* Add your image URL */
+    /* background-image: url('https://via.placeholder.com/600x600'); */
     background-size: cover;
     background-position: center;
     color: white;

@@ -11,8 +11,8 @@ export class AppComponent {
   title = 'project';
   constructor(private UserService:UserService){}
   ngOnInit(){
-    let token = localStorage.getItem('token')
+    // let token = localStorage.getItem('token')
     let id = localStorage.getItem('id')
-    if(token || id) this.UserService.isLoged = true
+    if(id) this.UserService.isLoged = true
   }
 }

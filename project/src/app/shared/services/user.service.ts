@@ -20,7 +20,7 @@ export class UserService {
 
   //to sign-up
   signUp(body:any):Observable<any>{
-    return this.http.post(`${this.apiUrl}/register`,body)
+    return this.http.post(`${this.apiUrl}/register/sign-up`,body)
   }
 
   //to login

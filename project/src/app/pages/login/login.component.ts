@@ -57,7 +57,7 @@ togglePassword(): void {
 
   this.userService.login(loginBody).subscribe(res => {
       console.log('Success from login:', res);
-      localStorage.setItem('token', res.user.token); // Assuming token is in res.token
+      // localStorage.setItem('token', res.user.token);
       localStorage.setItem('id', res.user.id); // Assuming token is in res.token
       this.showAlert('Login successful!', 'success');
 

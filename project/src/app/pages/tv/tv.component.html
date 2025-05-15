@@ -5,14 +5,18 @@
                 <img src={{t.imageUrl}} alt="" class="card-img-top">
                 <div class="card-body">
                     <h3 class="card-title">{{t.name}}</h3>
-                    <div *ngIf="t.price>0">
+                    <div *ngIf="t.discount>0">
+                        <span class="text-secondary fs-5"> price: </span>
                         <span class="card-text me-3 text-decoration-line-through">{{t.price}}$</span>
                         <span class="card-text fw-bold text-danger fs-4">{{t.price-(t.discount/100)}}$</span>
                     </div>
-                    <div *ngIf="t.price == 0">
-                        <span class="card-text me-3 fw-bold">{{t.price}}$</span>
+                    <div *ngIf="t.discount == 0">
+                        <span class="card-text me-3 fw-bold"><span class="text-secondary fs-5"> price:
+                            </span>{{t.price}}$</span>
                     </div>
                     <p class="card-text">{{t.description}}</p>
+                    <button class="btn bg-dark text-light rounded w-75 py-2 ms-4 fs-5" (click)="addToCart(t._id)">Add
+                        to cart</button>
                 </div>
             </div>
         </div>
